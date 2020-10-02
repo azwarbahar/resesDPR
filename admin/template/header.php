@@ -103,7 +103,7 @@
 
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/reses-dprd/admin/layout/jadwal-reses/data.php" class="nav-link">
               <i class="nav-icon fa fa-calendar-check"></i>
               <p>
                 Jadwal Reses
