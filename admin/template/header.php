@@ -113,7 +113,7 @@
 
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
               <i class="nav-icon fa fa-university"></i>
               <p>
                 Dapil
