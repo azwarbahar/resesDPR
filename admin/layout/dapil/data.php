@@ -39,8 +39,7 @@ require '../../template/header.php';
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th>Daerah</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -48,9 +47,8 @@ require '../../template/header.php';
 
                   <tr>
                     <td>1</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>Aktif</td>
+                    <td>3</td>
+                    <td>Takalalla - Liliriaja - Lilirilau</td>
                     <td style="text-align:center">
                         <a href="detail.php" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>

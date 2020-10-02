@@ -38,9 +38,9 @@ require '../../template/header.php';
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th>Titel</th>
+                    <th>Waktu</th>
+                    <th>Batas</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -48,9 +48,9 @@ require '../../template/header.php';
 
                   <tr>
                     <td>1</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>Aktif</td>
+                    <td>Bulan Pertama</td>
+                    <td>12 Januari 2020</td>
+                    <td>12 Maret 2020</td>
                     <td style="text-align:center">
                         <a href="detail.php" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
