@@ -35,7 +35,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/reses-dprd/admin/index.php" class="nav-link">Home</a>
+        <a href="/reses-dprd/anggota-dpr/index.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -56,8 +56,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/reses-dprd/admin/index.php" class="brand-link">
-      <img src="/reses-dprd/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="/reses-dprd/anggota-dpr/index.php" class="brand-link">
+      <img src="/reses-dprd/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">RESES DPRD</span>
     </a>
@@ -67,10 +67,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/reses-dprd/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/reses-dprd/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">BANG JAGO</a>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item has-treeview menu-open">
-            <a href="/reses-dprd/admin/" class="nav-link active">
+            <a href="/reses-dprd/anggota-dpr/" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -92,18 +92,18 @@
 
           <li class="nav-header">Master Data</li>
 
-          <li class="nav-item">
-            <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
+          <!-- <li class="nav-item">
+            <a href="/reses-dprd/anggota-dpr/layout/profile-dpr/data.php" class="nav-link">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
                 Profile Anggota DPR
               </p>
             </a>
-          </li>
+          </li> -->
 
 
           <li class="nav-item has-treeview">
-            <a href="/reses-dprd/admin/layout/jadwal-reses/data.php" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/layout/jadwal-reses/data.php" class="nav-link">
               <i class="nav-icon fa fa-calendar-check"></i>
               <p>
                 Jadwal Reses
@@ -113,16 +113,13 @@
 
 
           <li class="nav-item has-treeview">
-            <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/layout/dapil/data.php" class="nav-link">
               <i class="nav-icon fa fa-university"></i>
               <p>
                 Dapil
               </p>
             </a>
           </li>
-          
-
-          <li class="nav-header">LAPORAN</li>
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -131,25 +128,28 @@
             </a>
           </li>
 
+          <!-- <li class="nav-header">LAPORAN</li> -->
 
-          <li class="nav-item">
+         
+
+
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Laporan Approve</p>
             </a>
-          </li>
+          </li> -->
 
-          <li class="nav-header">Admin</li>
+          <!-- <li class="nav-header">Admin</li> -->
 
-          
-          <li class="nav-item">
-            <a href="/reses-dprd/admin/layout/user/data-user.php" class="nav-link">
+          <!-- <li class="nav-item">
+            <a href="/reses-dprd/anggota-dpr/layout/user/data-user.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 User
               </p>
             </a>
-          </li>
+          </li> -->
 
 
         </ul>

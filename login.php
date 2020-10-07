@@ -78,7 +78,8 @@ if (isset($_SESSION["login_admin"])) {
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <a href="admin/" class="btn btn-primary btn-block">Login</a>
+            <a href="admin/" class="btn btn-primary btn-block">ADMIN</a>
+            <a href="anggota-dpr/" class="btn btn-primary btn-block">DPR</a>
           </div>
           <!-- /.col -->
         </div>
