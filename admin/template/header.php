@@ -87,65 +87,97 @@
               </p>
             </a>
           </li>
+          <li class="nav-header"></li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Master Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/jadwal-reses/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jadwal Reses</p>
+                </a>
+              </li>
 
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dapil</p>
+                </a>
+              </li>
 
-          <li class="nav-header">Master Data</li>
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Partai</p>
+                </a>
+              </li>
 
-          <li class="nav-item">
-            <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fraksi</p>
+                </a>
+              </li><br>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
-                Profile Anggota DPR
+              Anggota DPR
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profil</p>
+                </a>
+              </li><br>
+            </ul>
           </li>
-
 
           <li class="nav-item has-treeview">
-            <a href="/reses-dprd/admin/layout/jadwal-reses/data.php" class="nav-link">
-              <i class="nav-icon fa fa-calendar-check"></i>
-              <p>
-                Jadwal Reses
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item has-treeview">
-            <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
-              <i class="nav-icon fa fa-university"></i>
-              <p>
-                Dapil
-              </p>
-            </a>
-          </li>
-          
-
-          <li class="nav-header">LAPORAN</li>
-
-          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
-              <p>Laporan Masuk</p>
+              <p>
+              Laporan
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan Approve</p>
+                </a>
+              </li><br>
+            </ul>
           </li>
 
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Laporan Approve</p>
-            </a>
-          </li>
-
-          <li class="nav-header">Admin</li>
+          <li class="nav-header">Setting</li>
 
           
           <li class="nav-item">
             <a href="/reses-dprd/admin/layout/user/data-user.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                User
+                Admin
               </p>
             </a>
           </li>
