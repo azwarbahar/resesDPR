@@ -49,6 +49,29 @@
         </div>
       </div>
     </form>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Pemberitahuan</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 Laporan Terbaru
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">Lihat Semua</a>
+        </div>
+      </li>
+
+    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -139,8 +162,15 @@
               <li class="nav-item">
                 <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Anggota DPR</p>
+                  <p>Anggota DPR (opsi 1)</p>
                 </a>
+
+                <li class="nav-item">
+                <a href="/reses-dprd/admin/layout/profile-dpr/data2.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Anggota DPR (opsi 2)</p>
+                </a>
+
               </li><br>
             </ul>
           </li>
@@ -172,12 +202,21 @@
 
           <li class="nav-header">Setting</li>
 
-          
+
           <li class="nav-item">
             <a href="/reses-dprd/admin/layout/user/data-user.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Admin
+              </p>
+            </a>
+
+
+        </a>
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+              <i class="nav-icon fa fa-desktop"></i>
+              <p>
+                Tema
               </p>
             </a>
           </li>
