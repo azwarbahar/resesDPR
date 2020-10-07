@@ -1,18 +1,18 @@
 
 <?php
 
-session_start();
+// session_start();
 
-if (isset($_COOKIE['masuk_admin'])) {
-  if ($_COOKIE['masuk_admin'] == 'true'){
-    $_SESSION['login_admin'] = true;
-  }
-}
+// if (isset($_COOKIE['masuk_admin'])) {
+//   if ($_COOKIE['masuk_admin'] == 'true'){
+//     $_SESSION['login_admin'] = true;
+//   }
+// }
 
-if (isset($_SESSION["login_admin"])) {
-    header("location: admin/");
-    exit();
-  }
+// if (isset($_SESSION["login_admin"])) {
+//     header("location: admin/");
+//     exit();
+//   }
 
   require 'koneksi/koneksi.php';
 
