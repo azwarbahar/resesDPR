@@ -35,3 +35,7 @@
 - nama
 - keterangan
 - status
+
+6 Tabel Laporan
+-id
+-
