@@ -38,9 +38,11 @@ require '../../template/header.php';
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Titel</th>
-                    <th>Waktu</th>
-                    <th>Batas</th>
+                    <th>Nama</th>
+                    <th>Mulai</th>
+                    <th>Akhir</th>
+                    <th>Laporan</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -48,14 +50,40 @@ require '../../template/header.php';
 
                   <tr>
                     <td>1</td>
-                    <td>Bulan Pertama</td>
+                    <td>Semester I</td>
                     <td>12 Januari 2020</td>
-                    <td>12 Maret 2020</td>
+                    <td>12 April 2020</td>
+                    <td><a href="#">9 Laporan</a></td>
+                    <td style="text-align:center"><span class="badge bg-success">Selesai</span></td>
                     <td style="text-align:center">
-                        <a href="detail.php" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    </td>
+                  </tr>
 
+                  <tr>
+                    <td>2</td>
+                    <td>Semester II</td>
+                    <td>12 Mei 2020</td>
+                    <td>12 Agustus 2020</td>
+                    <td><a href="#">20 Laporan</a></td>
+                    <td style="text-align:center"><span class="badge bg-primary">Berjalan</span></td>
+                    <td style="text-align:center">
+                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>Semester III</td>
+                    <td>12 September 2020</td>
+                    <td>12 Desember 2020</td>
+                    <td><a href="#">- Laporan</a></td>
+                    <td style="text-align:center"><span class="badge bg-secondary">Menunggu</span></td>
+                    <td style="text-align:center">
+                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
 
