@@ -9,12 +9,12 @@ require '../../template/header.php';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dapil</h1>
+            <h1 class="m-0 text-dark">Fraksi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/reses-dprd/admin/">Home</a></li>
-              <li class="breadcrumb-item active">Dapil</li>
+              <li class="breadcrumb-item active">Fraksi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,27 +30,30 @@ require '../../template/header.php';
 
             <div class="card">
               <div class="card-header">
-                <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Dapil</a>
+                <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Fraksi</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  <tr>
+                    <tr>
                     <th>No</th>
+                    <th>Gambar</th>
                     <th>Nama</th>
-                    <th>Daerah</th>
+                    <th>Anggota</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
 
                   <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Takalalla - Liliriaja - Lilirilau</td>
+                  <td style="text-align:center">1</td>
+                    <td style="text-align:center"><img src="/reses-dprd/assets/dist/img/golkar.jpg" alt="" border=3 height=60 width=60></img></td>
+                    <td>Golkar</td>
+                    <td><a href="#">9 anggota</a></td>
+                    <td style="text-align:center"><span class="badge bg-primary">Aktif</span></td>
                     <td style="text-align:center">
-                        <a href="detail.php" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 
