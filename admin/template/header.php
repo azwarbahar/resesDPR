@@ -112,14 +112,14 @@
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/layout/partai/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partai</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/layout/fraksi/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fraksi</p>
                 </a>
@@ -139,7 +139,7 @@
               <li class="nav-item">
                 <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profil</p>
+                  <p>Anggota DPR</p>
                 </a>
               </li><br>
             </ul>

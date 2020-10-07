@@ -1,0 +1,37 @@
+1. Tabel Admin
+- id
+- nama
+- foto
+- status
+
+2. Tabel Anggota DPR
+- id
+- nama
+- tempat_lahir
+- tanggal_lahir
+- alamat
+- komisi
+- dapil
+- jabatan
+- foto
+- status
+
+3. Tabel Akun
+- id
+- id_akun
+- username/email
+- password
+- level
+- status
+
+4. Tabel Partai
+- id
+- nama
+- keterangan
+- status
+
+5. Tabel Fraksi
+- id
+- nama
+- keterangan
+- status

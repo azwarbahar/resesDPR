@@ -53,7 +53,7 @@ require '../../template/header.php';
                       <img class="profile-user-img img-fluid" src="/reses-dprd/assets/dist/img/user4-128x128.jpg" alt="User profile picture">
                     </div>
 
-                    <h3 class="profile-username text-center">Nina Mcintire</h3>
+                    <h3 class="profile-username text-center">Bang Jago</h3>
 
                     <p class="text-muted text-center">Software Engineer</p>
 
@@ -78,11 +78,7 @@ require '../../template/header.php';
 
 
             </div>
-            <!-- /.card-body -->
-            <!-- <div class="card-footer"> -->
-            <!-- Footer -->
-            <!-- </div> -->
-            <!-- /.card-footer-->
+
           </div>
           <!-- /.card -->
         </div>
