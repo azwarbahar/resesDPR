@@ -40,7 +40,6 @@ require '../../template/header.php';
                     <th>No</th>
                     <th>Nama</th>
                     <th>Daerah</th>
-                    <th>Anggota</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -56,7 +55,6 @@ require '../../template/header.php';
                       </ul>
 
                     </td>
-                    <td><a href="#">9 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
@@ -75,7 +73,6 @@ require '../../template/header.php';
                       </ul>
 
                     </td>
-                    <td><a href="#">3 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
@@ -93,14 +90,13 @@ require '../../template/header.php';
                       </ul>
 
                     </td>
-                    <td><a href="#">3 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 
                     </td>
                   </tr>
-                  
+
                   <tr>
                     <td style="text-align:center">4</td>
                     <td>Daerah Pilihan IV</td>
@@ -111,7 +107,6 @@ require '../../template/header.php';
                       </ul>
 
                     </td>
-                    <td><a href="#">5 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
