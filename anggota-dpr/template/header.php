@@ -129,7 +129,7 @@
           </li>
 
           <li class="nav-item">
-            <a  href="/reses-dprd/koneksi.php?logout=true&for=login_dpr" class="nav-link">
+            <a  href="/reses-dprd/logout.php?logout=true&for=login_dpr" class="nav-link">
               <i class="nav-icon fa fa-power-off"></i>
               <p>Logout</p>
             </a>

@@ -1,5 +1,7 @@
 <?php
-require '../../template/header.php';
+require '../template/header/header.php';
+
+$fraksi = mysqli_query($conn, "SELECT * FROM tb_fraksi");
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -45,11 +47,16 @@ require '../../template/header.php';
                   </tr>
                   </thead>
                   <tbody>
-
+                  <?php $i = 1; foreach($fraksi as $dta) { ?>
                   <tr>
-                  <td style="text-align:center">1</td>
-                    <td style="text-align:center"><img src="/reses-dprd/assets/dist/img/golkar.jpg" alt="" border=3 height=60 width=60></img></td>
-                    <td>Golkar</td>
+                  <td style="text-align:center"><?= $i ?></td>
+                  <?php
+                    $partai = mysqli_query($conn, "SELECT * FROM tb_partai WHERE id_partai = $dta[id_partai]");
+                    while($row=mysqli_fetch_assoc($partai)) {
+                      echo "<td style='text-align:center'><img src='../partai/gambar/$row[gambar_partai]' alt='' border=3 height=60 width=60></img></td>";
+                      echo " <td>$row[nama_partai]</td>";
+                    }
+                  ?>
                     <td><a href="#">9 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
@@ -58,6 +65,7 @@ require '../../template/header.php';
                     </td>
                   </tr>
 
+                  <?php $i = $i + 1; } ?>
                   </tbody>
 
                 </table>
@@ -78,5 +86,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
+require '../template/footer/footer.php';
 ?>
