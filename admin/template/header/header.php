@@ -136,13 +136,6 @@ if (!isset($_SESSION['login_admin'])) {
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/dapil/data.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dapil</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="/reses-dprd/admin/partai/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partai</p>
@@ -170,15 +163,8 @@ if (!isset($_SESSION['login_admin'])) {
               <li class="nav-item">
                 <a href="/reses-dprd/admin/profile-dpr/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Anggota DPR (opsi 1)</p>
+                  <p>Anggota DPR</p>
                 </a>
-
-                <li class="nav-item">
-                <a href="/reses-dprd/admin/profile-dpr/data2.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Anggota DPR (opsi 2)</p>
-                </a>
-
               </li><br>
             </ul>
           </li>

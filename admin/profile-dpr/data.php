@@ -1,5 +1,5 @@
 <?php
-require '../../template/header.php';
+require '../template/header/header.php';
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -28,42 +28,184 @@ require '../../template/header.php';
         <div class="row">
           <div class="col-12">
 
+            <!-- card -->
             <div class="card">
               <div class="card-header">
                 <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Anggota</a>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                  </thead>
-                  <tbody>
 
-                  <tr>
-                    <td>1</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>Aktif</td>
-                    <td style="text-align:center">
-                        <a href="detail.php" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>
-                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 
-                    </td>
-                  </tr>
+              <!-- Default box -->
+                 <div class="card card-solid">
+                    <div class="card-body pb-0">
+                        <div class="row d-flex align-items-stretch">
 
-                  </tbody>
+                             <!-- Profil 1 -->
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                      Profil
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>H.Syahruddin M Adam, S.sos, MM</b></h2>
+                                                <p class="text-muted text-sm"><b>AKD: </b> Ketua DPRD Kabupaten Soppeng </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jl. Sawah</li><br>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-flag"></i></span> Partai: Golkar</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="/reses-dprd/assets/dist/img/ketuaDPR.jpg" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
+                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profil 1 -->
 
-                </table>
-              </div>
-              <!-- /.card-body -->
+                             <!-- Profil 2 -->
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                      Profil
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>A.Mapparemma M, SE,MM</b></h2>
+                                                <p class="text-muted text-sm"><b>AKD: </b> Wakil Ketua I DPRD Kabupaten Soppeng </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jl. Sawah</li><br>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-flag"></i></span> Partai: Golkar</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="/reses-dprd/assets/dist/img/wakilDPR.jpg" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
+                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profil 2 -->
+
+                             <!-- Profil 3 -->
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                      Profil
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>H.Riswan,S.Sos</b></h2>
+                                                <p class="text-muted text-sm"><b>AKD: </b> Wakil Ketua II DPRD Kabupaten Soppeng </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jl. Sawah</li><br>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-flag"></i></span> Partai: Golkar</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="/reses-dprd/assets/dist/img/wakil2DPR.jpg" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
+                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profil 3 -->
+
+                             <!-- Profil 3 -->
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                      Profil
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>H.Riswan,S.Sos</b></h2>
+                                                <p class="text-muted text-sm"><b>AKD: </b> Wakil Ketua II DPRD Kabupaten Soppeng </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jl. Sawah</li><br>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-flag"></i></span> Partai: Golkar</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="/reses-dprd/assets/dist/img/wakil2DPR.jpg" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
+                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profil 3 -->
+
+                             <!-- Profil 1 -->
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                      Profil
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>H.Syahruddin M Adam, S.sos, MM</b></h2>
+                                                <p class="text-muted text-sm"><b>AKD: </b> Ketua DPRD Kabupaten Soppeng </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: Jl. Sawah</li><br>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-flag"></i></span> Partai: Golkar</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="/reses-dprd/assets/dist/img/ketuaDPR.jpg" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
+                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Profil 1 -->
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
@@ -79,5 +221,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
+require '../template/footer/footer.php';
 ?>
