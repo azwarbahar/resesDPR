@@ -59,11 +59,35 @@ $fraksi = mysqli_query($conn, "SELECT * FROM tb_fraksi");
                   ?>
                     <td><a href="#">9 anggota</a></td>
                     <td style="text-align:center">
-                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="edit.php?id_fraksi=<?= $dta['id_fraksi'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_fraksi'] ?>" ><i class="fa fa-trash"></i></a>
 
                     </td>
                   </tr>
+
+      <!-- Modal Hapus -->
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_fraksi'] ?>">
+        <div class="modal-dialog">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h4 class="modal-title">Hapus Partai</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Yakin Ingin Menghapus Fraksi</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
+              <a href="controller.php?hapus_fraksi=true&id_fraksi=<?= $dta['id_fraksi'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
                   <?php $i = $i + 1; } ?>
                   </tbody>

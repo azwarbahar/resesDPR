@@ -60,7 +60,7 @@ $partai = mysqli_query($conn, "SELECT * FROM tb_partai");
                     </td>
                   </tr>
 
-<div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_partai'] ?>">
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_partai'] ?>">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
