@@ -1,5 +1,6 @@
 <?php
 require_once '../template/header/header.php';
+$partai = mysqli_query($conn, "SELECT * FROM tb_partai");
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -45,11 +46,11 @@ require_once '../template/header/header.php';
                   </tr>
                   </thead>
                   <tbody>
-
+                  <?php $i = 1; foreach($partai as $dta) { ?>
                   <tr>
-                    <td style="text-align:center">1</td>
-                    <td style="text-align:center"><img src="/reses-dprd/assets/dist/img/golkar.jpg" alt="" border=3 height=60 width=60></img></td>
-                    <td>Golkar</td>
+                    <td style="text-align:center"><?= $i ?></td>
+                    <td style="text-align:center"><img src="gambar/<?php echo $dta['gambar_partai'] ?>" alt="" border=3 height=60 width=60></img></td>
+                    <td><?= $dta['nama_partai'] ?></td>
                     <td><a href="#">9 anggota</a></td>
                     <td style="text-align:center">
                         <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
@@ -57,7 +58,7 @@ require_once '../template/header/header.php';
 
                     </td>
                   </tr>
-
+                  <?php $i = $i + 1; } ?>
                   </tbody>
 
                 </table>
