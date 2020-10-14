@@ -1,3 +1,11 @@
+<?php
+require('../koneksi.php');
+
+if (!isset($_SESSION['login_admin'])) {
+  header("location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +87,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/reses-dprd/admin/index.php" class="brand-link">
-      <img src="/reses-dprd/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/reses-dprd/assets/dist/img/soppeng.png" alt="Logo Kabupaten Soppeng" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">RESES DPRD</span>
     </a>
@@ -121,28 +129,28 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/jadwal-reses/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/jadwal-reses/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal Reses</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/dapil/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/dapil/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dapil</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/partai/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/partai/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partai</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/fraksi/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/fraksi/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fraksi</p>
                 </a>
@@ -160,13 +168,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/profile-dpr/data.php" class="nav-link">
+                <a href="/reses-dprd/admin/profile-dpr/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Anggota DPR (opsi 1)</p>
                 </a>
 
                 <li class="nav-item">
-                <a href="/reses-dprd/admin/layout/profile-dpr/data2.php" class="nav-link">
+                <a href="/reses-dprd/admin/profile-dpr/data2.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Anggota DPR (opsi 2)</p>
                 </a>
@@ -204,7 +212,7 @@
 
 
           <li class="nav-item">
-            <a href="/reses-dprd/admin/layout/user/data-user.php" class="nav-link">
+            <a href="/reses-dprd/admin/user/data-user.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Admin
@@ -222,7 +230,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link"  href="../koneksi.php?logout=true&for=login_admin" role="button">
+            <a class="nav-link"  href="/reses-dprd/logout.php?logout=true&for=login_admin" role="button">
               <i class="nav-icon fa fa-power-off"></i>
               <p>
                 Logout

@@ -23,6 +23,9 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+
+<!-- bs-custom-file-input -->
+<script src="/reses-dprd/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
@@ -65,7 +68,6 @@
       "responsive": true,
     });
 
-    
     //-------------
     //- DONUT CHART -
     //-------------
@@ -96,11 +98,30 @@
     var donutChart = new Chart(donutChartCanvas, {
       type: 'doughnut',
       data: donutData,
-      options: donutOptions      
+      options: donutOptions
     })
 
 
   });
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+
+function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
 </script>
 
 </body>

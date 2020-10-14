@@ -27,8 +27,7 @@
 4. Tabel Partai
 - id
 - nama
-- keterangan
-- status
+- gambar
 
 5. Tabel Fraksi
 - id

@@ -109,7 +109,7 @@ if (isset($_POST['login'])) {
                           Username tidak ditemukan
                         </div>
                       <?php } ?>
-        
+
         <div class="input-group mb-3">
           <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
           <div class="input-group-append">
@@ -134,8 +134,8 @@ if (isset($_POST['login'])) {
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" tabindex="3" id="remember-me">
-              <label for="remember">
+              <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
+              <label for="remember-me">
                 Remember Me
               </label>
             </div>

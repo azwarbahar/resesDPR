@@ -57,7 +57,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/reses-dprd/anggota-dpr/index.php" class="brand-link">
-      <img src="/reses-dprd/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/reses-dprd/assets/dist/img/soppeng.png" alt="Logo Kabupaten Soppeng" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">RESES DPRD</span>
     </a>
@@ -128,9 +128,14 @@
             </a>
           </li>
 
-          <!-- <li class="nav-header">LAPORAN</li> -->
+          <li class="nav-item">
+            <a  href="/reses-dprd/koneksi.php?logout=true&for=login_dpr" class="nav-link">
+              <i class="nav-icon fa fa-power-off"></i>
+              <p>Logout</p>
+            </a>
+          </li>
 
-         
+          <!-- <li class="nav-header">LAPORAN</li> -->
 
 
           <!-- <li class="nav-item">
