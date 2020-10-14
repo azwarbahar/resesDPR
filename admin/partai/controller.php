@@ -6,7 +6,7 @@ function plugins() { ?>
 	<script src="/reses-dprd/assets/dist/jquery.min.js"></script>
 	<script src="/reses-dprd/assets/dist/sweetalert/sweetalert.min.js"></script>
 <?php }
-require('../../../koneksi.php');
+require('../../koneksi.php');
 // SUBMIT PARTAI
 if (isset($_POST['submit_partai'])) {
 	$nama_partai = $_POST['nama_partai'];

@@ -1,5 +1,5 @@
 <?php
-require('../koneksi.php');
+require('../../koneksi.php');
 
 if (!isset($_SESSION['login_admin'])) {
   header("location: ../login.php");

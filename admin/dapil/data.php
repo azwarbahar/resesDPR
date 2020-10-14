@@ -1,5 +1,5 @@
 <?php
-require '../../template/header.php';
+require_once '../template/header/header.php';
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -134,5 +134,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
+require '../template/footer/footer.php';
 ?>

@@ -1,6 +1,5 @@
 <?php
-require '../../template/header.php';
-
+require_once '../template/header/header.php';
 ?>
 
 
@@ -59,7 +58,7 @@ require '../../template/header.php';
 
               <div class="col-12">
               <button type="submit" name="submit_partai" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
-              <a href="/reses-dprd/admin/layout/partai/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
+              <a href="/reses-dprd/admin/partai/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
             </div>
@@ -79,5 +78,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
+require '../template/footer/footer.php';
 ?>
