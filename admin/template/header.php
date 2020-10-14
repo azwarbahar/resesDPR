@@ -210,9 +210,9 @@
                 Admin
               </p>
             </a>
+          </li>
 
-
-        </a>
+          <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
               <i class="nav-icon fa fa-desktop"></i>
               <p>
@@ -221,7 +221,14 @@
             </a>
           </li>
 
-
+          <li class="nav-item">
+            <a class="nav-link"  href="../koneksi.php?logout=true&for=login_admin" role="button">
+              <i class="nav-icon fa fa-power-off"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

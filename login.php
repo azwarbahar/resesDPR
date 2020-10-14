@@ -1,20 +1,63 @@
 
 <?php
+require 'koneksi.php';
 
-// session_start();
+if (isset($_COOKIE['login_admin'])) $_SESSION['login_admin'] = $_COOKIE['login_admin'];
+else if (isset($_COOKIE['login_dpr'])) $_SESSION['login_dpr'] = $_COOKIE['login_dpr'];
 
-// if (isset($_COOKIE['masuk_admin'])) {
-//   if ($_COOKIE['masuk_admin'] == 'true'){
-//     $_SESSION['login_admin'] = true;
-//   }
-// }
+if (isset($_COOKIE['get_id'])) $_SESSION['get_id'] = $_COOKIE['get_id'];
 
-// if (isset($_SESSION["login_admin"])) {
-//     header("location: admin/");
-//     exit();
-//   }
+if (isset($_SESSION['login_admin'])) header("location: admin/");
+else if (isset($_SESSION['login_dpr'])) header("location: anggota-dpr/");
 
-  require 'koneksi/koneksi.php';
+$password = null;
+$username = null;
+$err_user = false;
+$err_pass = false;
+$err_stss = false;
+
+
+if (isset($_POST['login'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $result = mysqli_query($conn, "SELECT * FROM tb_akun WHERE username = '$username'");
+  $get = mysqli_fetch_assoc($result);
+
+  if ($get) {
+    $get_password = $get['password'];
+    $get_id = $get['id'];
+    $level_akun = $get['level_akun'];
+    $status = $get['status'];
+
+    if (password_verify($password, $get_password)) {
+      $_SESSION['get_id'] = $get_id;
+      setcookie('get_id', $get_id, time()+172800);
+
+      if ($level_akun == 'admin') {
+        if ($status != 'Aktif') $err_stss = true;
+        else {
+          $_SESSION['login_admin'] = $get_password;
+          if (isset($_POST['remember'])) {
+            setcookie('login_admin', $get_password, time()+172800);
+          }
+          header("location: admin/");
+          exit();
+        }
+      } else if ($level_akun == 'dpr') {
+        if ($status != 'Aktif') $err_stss = true;
+        else {
+          $_SESSION['login_dpr'] = $get_password;
+          if (isset($_POST['remember'])) {
+            setcookie('login_dpr', $get_password, time()+172800);
+          }
+          header("location: anggota-dpr/");
+          exit();
+        }
+      }
+    } else $err_pass = true;
+  } else $err_user = true;
+}
 
 ?>
 
@@ -28,13 +71,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -49,28 +92,49 @@
       <p class="login-box-msg">Login</p>
       <br><br>
 
-      <form action="admin/index3.html" method="post">
+      <form  method="POST" class="needs-validation">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Email">
+          <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus value="<?= $username ? $username : '' ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
-        </div>
+          </div>
+          <div class="invalid-feedback">
+                        Masukkan username
+                      </div>
+                      <?php if ($err_user == true) { ?>
+                        <div class="text-danger">
+                          Username tidak ditemukan
+                        </div>
+                      <?php } ?>
+        
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <div class="invalid-feedback"> Masukkan password</div>
+        <?php if ($err_pass == true) { ?>
+        <div class="text-danger">
+          Password tidak sesuai
+        </div>
+        <?php } ?>
+
+        <?php if ($err_stss == true) { ?>
+        <div class="text-danger">
+          Akun belum diverifikasi atau sedang dinonaktifkan
+        </div>
+        <?php } ?>
           <br><br>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <input type="checkbox" tabindex="3" id="remember-me">
               <label for="remember">
                 Remember Me
               </label>
@@ -78,8 +142,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <a href="admin/" class="btn btn-primary btn-block">ADMIN</a>
-            <a href="anggota-dpr/" class="btn btn-primary btn-block">DPR</a>
+            <button type="submit" class="btn btn-primary btn-block" name="login" tabindex="4">Login</button>
           </div>
           <!-- /.col -->
         </div>
@@ -92,11 +155,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="admin/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="admin/dist/js/adminlte.min.js"></script>
+<script src="assets/dist/js/adminlte.min.js"></script>
 
 </body>
 </html>
