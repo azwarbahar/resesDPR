@@ -29,15 +29,15 @@
 <!-- Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../..//../assetsplugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/reses-dprd/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/reses-dprd/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/reses-dprd/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/reses-dprd/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 <!-- jQuery Knob Chart -->
 <script src="/reses-dprd/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- ChartJS -->
-<script src="/reses-dprd/assets//plugins/chart.js/Chart.min.js"></script>
+<script src="/reses-dprd/assets/plugins/chart.js/Chart.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
@@ -75,12 +75,12 @@
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome', 
+          'Chrome',
           'IE',
-          'FireFox', 
-          'Safari', 
-          'Opera', 
-          'Navigator', 
+          'FireFox',
+          'Safari',
+          'Opera',
+          'Navigator',
       ],
       datasets: [
         {
@@ -100,7 +100,6 @@
       data: donutData,
       options: donutOptions
     })
-
 
   });
 </script>
