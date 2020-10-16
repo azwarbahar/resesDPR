@@ -1,5 +1,5 @@
 <?php
-require '../../template/header.php';
+require '../template/header/header.php';
 ?>
 
 
@@ -93,6 +93,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
-
+require '../template/footer/footer.php';
 ?>

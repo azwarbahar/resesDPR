@@ -74,7 +74,7 @@ if (isset($_POST['submit_anggota'])) {
 }
 
 
-// UPDATE PARTAI
+// UPDATE ANGGOTA
 if (isset($_POST['edit_partai'])) {
 	$id_partai = $_POST['id_partai'];
 	$nama_partai = $_POST['nama_partai'];
@@ -115,11 +115,11 @@ if (isset($_POST['edit_partai'])) {
 }
 
 
-// HAPUS PARTAI
-if (isset($_GET['hapus_partai'])) {
-	$id_partai = $_GET['id_partai'];
+// HAPUS ANGGOTA
+if (isset($_GET['hapus_anggota'])) {
+	$id_anggota = $_GET['id_anggota'];
 
-	$query = "DELETE FROM tb_partai WHERE id_partai = '$id_partai'";
+	$query = "DELETE FROM tb_anggota WHERE id_anggota = '$id_anggota'";
 	mysqli_query($conn, $query);
 	if (mysqli_affected_rows($conn) > 0) {
 		plugins(); ?>
@@ -127,7 +127,7 @@ if (isset($_GET['hapus_partai'])) {
 			$(document).ready(function() {
 				swal({
 					title: 'Berhasil Dihapus',
-					text: 'Data Partai berhasil dihapus',
+					text: 'Data Anggota berhasil dihapus',
 					icon: 'success'
 				}).then((data) => {
 					location.href = 'data.php';

@@ -70,14 +70,37 @@ $anggota = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE status_anggota= '
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right">
-                                            <a href="#" class="btn btn-sm bg-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" type="button" class="btn btn-sm bg-danger"  data-toggle="modal" data-target="#modal-danger<?= $dta['id_anggota'] ?>"><i class="fas fa-trash"></i></a>
                                             <a href="#" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="/reses-dprd/admin/layout/profile-dpr/detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                            <a href="detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /Profil 1 -->
+                                  <!-- Modal Hapus -->
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_anggota'] ?>">
+        <div class="modal-dialog">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h4 class="modal-title">Hapus Anggota</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Yakin Ingin Menghapus Anggota</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
+              <a href="controller.php?hapus_anggota=true&id_anggota=<?= $dta['id_anggota'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
                         <?php $i = $i + 1; } ?>
 
                         </div>
