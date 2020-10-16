@@ -28,8 +28,8 @@ require '../template/header/header.php';
     <form method="POST" action="controller.php" enctype="multipart/form-data">
       <div class="row">
 
-        <!-- CARD BIODATA -->
         <div class="col-md-6">
+          <!-- CARD BIODATA -->
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Biodata</h3>
@@ -125,6 +125,73 @@ require '../template/header/header.php';
                     <option value="Kawin">Kawin</option>
                     <option value="Belum Kawin">Belum Kawin</option>
                   </select>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+          <!-- CARD PROFIL ANGOTA DEWAN -->
+          <div class="card card-warning">
+            <div class="card-header">
+              <h3 class="card-title">Profil Anggota Dewan</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+
+            <div class="card-body">
+
+              <!-- Jabatan -->
+              <div class="form-group">
+                <label for="inputName">Jabatan</label>
+                <input type="text" id="jabatan" name="jabatan" class="form-control">
+              </div>
+
+               <!-- Nama Partai -->
+              <div class="form-group">
+              <label for="inputName">Nama Partai</label>
+                <select class="form-control select2" style="width: 100%;" name="id_partai" id="id_partai">
+                    <option selected="selected" value="-">---- Pilih ----</option>
+                    <?php
+                      $partai=mysqli_query($conn,'SELECT * FROM tb_partai');
+                      while($row_partai=mysqli_fetch_assoc($partai)) {
+                        echo "<option value='$row_partai[id_partai]'>$row_partai[nama_partai]</option>";
+                      }
+                    ?>
+                  </select>
+              </div>
+
+               <!-- Nama Komisi -->
+              <div class="form-group">
+              <label for="inputName">Komisi</label>
+                <select class="form-control select2" style="width: 100%;" name="id_partai" id="id_partai">
+                    <option selected="selected" value="-">---- Pilih ----</option>
+                    <?php
+                      $komisi=mysqli_query($conn,'SELECT * FROM tb_komisi');
+                      while($row_komisi=mysqli_fetch_assoc($komisi)) {
+                        echo "<option value='$row_komisi[id_komisi]'>$row_komisi[nama_komisi]</option>";
+                      }
+                    ?>
+                  </select>
+              </div>
+
+               <!-- Nama Fraksi -->
+              <div class="form-group">
+                <label for="inputName">Nama Fraksi</label>
+                <select class="form-control select2" style="width: 100%;" name="id_fraksi" id="id_fraksi">
+                    <option selected="selected" value="-">---- Pilih ----</option>
+                    <?php
+                      $fraksi=mysqli_query($conn,'SELECT * FROM tb_fraksi');
+                      while($row_fraksi=mysqli_fetch_assoc($fraksi)) {
+                        $aa = $row_fraksi['id_partai'];
+                        $namapartai = mysqli_query($conn,"SELECT * FROM tb_partai WHERE id_partai= $row_fraksi[id_partai] ");
+                        $row_partai=mysqli_fetch_assoc($namapartai);
+                        echo "<option value='$row_fraksi[id_fraksi]'>$row_partai[nama_partai]</option>";
+                      }
+                    ?>
+                </select>
               </div>
             </div>
             <!-- /.card-body -->

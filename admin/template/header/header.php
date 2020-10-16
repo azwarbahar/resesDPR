@@ -154,7 +154,15 @@ if (!isset($_SESSION['login_admin'])) {
                   <i class="far fa-circle nav-icon"></i>
                   <p>Fraksi</p>
                 </a>
-              </li><br>
+              </li>
+
+              <li class="nav-item">
+                <a href="/reses-dprd/admin/komisi/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Komisi</p>
+                </a>
+              </li>
+              <br>
             </ul>
           </li>
 
