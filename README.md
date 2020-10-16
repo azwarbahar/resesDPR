@@ -40,3 +40,8 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "reses_dprd_soppeng");
 ?>
 ```
+
+
+## Selesai
+- [ ] Partai
+- [x] Fraksi
