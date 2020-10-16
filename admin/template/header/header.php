@@ -136,6 +136,13 @@ if (!isset($_SESSION['login_admin'])) {
               </li>
 
               <li class="nav-item">
+                <a href="/reses-dprd/admin/dapil/data.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dapil</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="/reses-dprd/admin/partai/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partai</p>
