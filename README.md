@@ -42,6 +42,31 @@ $conn = mysqli_connect("localhost", "root", "", "reses_dprd_soppeng");
 ```
 
 
-## Selesai
-- [ ] Partai
-- [x] Fraksi
+## Progres Project
+[ ] Progres dan [x] Selesai
+
+### Admin
+- [_] Dashboard
+Master Data
+- [_] Jadwal Reses CRUD
+- [x] Partai CRUD
+- [x] Fraksi CRUD
+- [x] Dapil CRUD
+- [x] Komisi CRUD
+Anggota DPR
+- [x] Anggota DPR Tabel
+- [x] Anggota DPR Create
+- [_] Anggota DPR Update
+- [x] Anggota DPR Delete
+- [_] Anggota DPR Read/Detail
+Laporan
+- [_] Laporan Masuk
+- [_] Laporan Approve
+Setting
+- [_] Admin
+- [x] Tema
+- [x] Logout
+
+### Admin
+
+Soon
