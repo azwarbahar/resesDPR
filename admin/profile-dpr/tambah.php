@@ -47,6 +47,12 @@ require '../template/header/header.php';
                 <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control">
               </div>
 
+              <!-- Alamat -->
+              <div class="form-group">
+                <label for="inputDescription">Alamat</label>
+                <input id="alamat" name="alamat" class="form-control" >
+              </div>
+
               <!-- Tempat Lahir -->
               <div class="form-group">
                 <label for="inputDescription">Tempat Lahir</label>
@@ -126,6 +132,12 @@ require '../template/header/header.php';
                     <option value="Belum Kawin">Belum Kawin</option>
                   </select>
               </div>
+
+              <!-- Usernam dan Password -->
+              <div class="form-group">
+                <label for="inputDescription">Username dan Password</label>
+                <input id="username" name="username" class="form-control" required>
+              </div>
             </div>
             <!-- /.card-body -->
           </div>
@@ -163,15 +175,29 @@ require '../template/header/header.php';
                   </select>
               </div>
 
+               <!-- Nama Dapil -->
+              <div class="form-group">
+              <label for="inputName">Nama Dapil</label>
+                <select class="form-control select2" style="width: 100%;" name="id_dapil" id="id_dapil">
+                    <option selected="selected" value="-">---- Pilih ----</option>
+                    <?php
+                      $dapil=mysqli_query($conn,'SELECT * FROM tb_dapil');
+                      while($row_dapil=mysqli_fetch_assoc($dapil)) {
+                        echo "<option value='$row_dapil[id_dapil]'>$row_dapil[nama_dapil]</option>";
+                      }
+                    ?>
+                  </select>
+              </div>
+
                <!-- Nama Komisi -->
               <div class="form-group">
               <label for="inputName">Komisi</label>
-                <select class="form-control select2" style="width: 100%;" name="id_partai" id="id_partai">
+                <select class="form-control select2" style="width: 100%;" name="id_komisi" id="id_komisi">
                     <option selected="selected" value="-">---- Pilih ----</option>
                     <?php
                       $komisi=mysqli_query($conn,'SELECT * FROM tb_komisi');
                       while($row_komisi=mysqli_fetch_assoc($komisi)) {
-                        echo "<option value='$row_komisi[id_komisi]'>$row_komisi[nama_komisi]</option>";
+                        echo "<option value='$row_komisi[id_komisi]'>$row_komisi[nama_komisi] ($row_komisi[bidang_komisi])</option>";
                       }
                     ?>
                   </select>
@@ -232,7 +258,7 @@ require '../template/header/header.php';
       <br><br>
       <div class="row">
         <div class="col-12">
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right"  style=" margin-left: 2%">
+          <button type="submit" name="submit_anggota" class="btn btn-success float-right"  style=" margin-left: 2%">Simpan</button>
           <a href="#" class="btn btn-secondary float-right">Batal</a>
         </div>
       </div>
