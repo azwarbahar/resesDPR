@@ -27,7 +27,7 @@ Buat database dengan nama
 reses_dprd_soppeng
 ```
 
-Lalu Import tabel [ini](https://github.com/azwarbahar07/resesDPR/archive/master.zip)
+Lalu Import tabel [ini](https://github.com/azwarbahar07/resesDPR/blob/master/reses_dprd_soppeng.sql)
 
 
 ## Koneksi
@@ -43,12 +43,12 @@ $conn = mysqli_connect("localhost", "root", "", "reses_dprd_soppeng");
 
 
 ## Progres Project
-[ ] Progres dan [x] Selesai
+- [ ] Progres dan - [x] Selesai
 
 ### Admin
-- [_] Dashboard
+- [ ] Dashboard
 Master Data
-- [_] Jadwal Reses CRUD
+- [ ] Jadwal Reses CRUD
 - [x] Partai CRUD
 - [x] Fraksi CRUD
 - [x] Dapil CRUD
@@ -56,14 +56,14 @@ Master Data
 Anggota DPR
 - [x] Anggota DPR Tabel
 - [x] Anggota DPR Create
-- [_] Anggota DPR Update
+- [ ] Anggota DPR Update
 - [x] Anggota DPR Delete
-- [_] Anggota DPR Read/Detail
+- [ ] Anggota DPR Read/Detail
 Laporan
-- [_] Laporan Masuk
-- [_] Laporan Approve
+- [ ] Laporan Masuk
+- [ ] Laporan Approve
 Setting
-- [_] Admin
+- [ ] Admin
 - [x] Tema
 - [x] Logout
 
