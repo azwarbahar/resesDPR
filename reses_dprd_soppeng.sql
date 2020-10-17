@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Okt 2020 pada 14.45
+-- Waktu pembuatan: 17 Okt 2020 pada 19.30
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `reses_dprd_soppeng`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_admin`
+--
+
+CREATE TABLE `tb_admin` (
+  `id_admin` int(11) NOT NULL,
+  `nama_admin` varchar(225) NOT NULL,
+  `foto_admin` varchar(225) NOT NULL,
+  `status_admin` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `foto_admin`, `status_admin`) VALUES
+(1, 'Reski Solihin', 'image_1602955536.PNG', 'Aktif'),
+(6, 'Muhammad Azwar Bahar', 'image_1602955710.jpg', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -43,7 +64,10 @@ CREATE TABLE `tb_akun` (
 
 INSERT INTO `tb_akun` (`id`, `id_akun`, `username`, `password`, `level_akun`, `status`) VALUES
 (1, '1', 'admin', '$2y$10$dw3996inoENCYr7ppG4V0eEtk9fB3WuSxPtUjEnz7gJm7F65rPa/i', 'admin', 'Aktif'),
-(2, '2', 'anggota', '$2y$10$2.3Faw84gMTWiRtsKLy7.OKpNxgkq2KjT6xxUeXFgAV6SLTf0DqF6', 'dpr', 'Aktif');
+(2, '2', 'anggota', '$2y$10$2.3Faw84gMTWiRtsKLy7.OKpNxgkq2KjT6xxUeXFgAV6SLTf0DqF6', 'dpr', 'Aktif'),
+(3, '3', 'riswan', '$2y$10$bGbcG.k6Diq.U4Fhx63pSOF6OVPu.oCYc7kszsgqCnR8D2M0y6vLK', 'dpr', 'Aktif'),
+(9, '5', 'azwar', '$2y$10$fwTl3KQdFOeN6r9IsNtaKe4evyc.YhtrmnYE2gWHSU7ID/6efNe6i', 'admin', 'Non Aktif'),
+(10, '6', 'azwar', '$2y$10$95tqIWQL7IdJM3Ye1r0B4.l6jj9PCvV3YgXJGV6lL06VuBD48utze', 'admin', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -74,7 +98,8 @@ CREATE TABLE `tb_anggota` (
 
 INSERT INTO `tb_anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `tempat_lahir_anggota`, `tanggal_lahir_anggota`, `agama_anggota`, `status_kawin`, `jabatan_anggota`, `id_partai`, `id_dapil`, `id_komisi`, `id_fraksi`, `foto_anggota`, `status_anggota`) VALUES
 (1, 'H. Syahruddin M. Adam, S.Sos, MM', 'Jl. Sawah', 'Soppeng', '4 Februari 1967', 'Islam', 'Kawin', 'Ketua DPRD Kabupaten Soppeng', '1', '1', '1', '1', 'image_anggota_1602847361.jpg', 'Aktif'),
-(2, 'A.Mapparemma M, SE, MM', 'Jl. Bila Utara No. 28 Watansoppeng', 'Soppeng', '7 Mei 1964', 'Islam', 'Kawin', 'Wakil', '2', '1', '2', '3', 'image_anggota_1602848759.jpg', 'Aktif');
+(2, 'A.Mapparemma M, SE, MM', 'Jl. Bila Utara No. 28 Watansoppeng', 'Soppeng', '7 Mei 1964', 'Islam', 'Kawin', 'Wakil', '2', '1', '2', '3', 'image_anggota_1602943306.jpg', 'Aktif'),
+(3, 'H.Riswan,S.Sos', 'Makassar', 'Soppeng', '15 Agustus 1966', 'Islam', 'Kawin', 'Wakil II DPRD Kabupaten Soppeng', '4', '2', '2', '2', 'image_anggota_1602946152.jpg', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -140,6 +165,29 @@ INSERT INTO `tb_fraksi` (`id_fraksi`, `id_partai`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_jadwal`
+--
+
+CREATE TABLE `tb_jadwal` (
+  `id_jadwal` int(11) NOT NULL,
+  `nama_jadwal` varchar(255) NOT NULL,
+  `mulai_jadwal` date NOT NULL,
+  `akhir_jadwal` date NOT NULL,
+  `status_jadwal` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_jadwal`
+--
+
+INSERT INTO `tb_jadwal` (`id_jadwal`, `nama_jadwal`, `mulai_jadwal`, `akhir_jadwal`, `status_jadwal`) VALUES
+(1, 'Semester I', '2020-01-12', '2020-04-12', 'Selesai'),
+(2, 'Semester II', '2020-05-12', '2020-08-12', 'Selesai'),
+(3, 'Semester III', '2020-09-12', '2020-12-12', 'Berjalan');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_komisi`
 --
 
@@ -183,6 +231,12 @@ INSERT INTO `tb_partai` (`id_partai`, `nama_partai`, `gambar_partai`) VALUES
 --
 
 --
+-- Indeks untuk tabel `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
 -- Indeks untuk tabel `tb_akun`
 --
 ALTER TABLE `tb_akun`
@@ -213,6 +267,12 @@ ALTER TABLE `tb_fraksi`
   ADD PRIMARY KEY (`id_fraksi`);
 
 --
+-- Indeks untuk tabel `tb_jadwal`
+--
+ALTER TABLE `tb_jadwal`
+  ADD PRIMARY KEY (`id_jadwal`);
+
+--
 -- Indeks untuk tabel `tb_komisi`
 --
 ALTER TABLE `tb_komisi`
@@ -229,16 +289,22 @@ ALTER TABLE `tb_partai`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_admin`
+--
+ALTER TABLE `tb_admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_akun`
 --
 ALTER TABLE `tb_akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dapil`
@@ -257,6 +323,12 @@ ALTER TABLE `tb_dapil_wilayah`
 --
 ALTER TABLE `tb_fraksi`
   MODIFY `id_fraksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_jadwal`
+--
+ALTER TABLE `tb_jadwal`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_komisi`
