@@ -23,7 +23,11 @@ if (isset($_POST['submit_anggota'])) {
 
 	$agama_anggota = $_POST['agama'];
 	$status_kawin = $_POST['status_kawin'];
+
+	//Set Username dan Passwor Akun Login Anggota (Sama)
 	$username = $_POST['username'];
+	$password = password_hash($username, PASSWORD_DEFAULT);
+	$level_akun = "dpr";
 
 
 	//CARD PROFIL ANGGOTA DEWAN
@@ -57,6 +61,12 @@ if (isset($_POST['submit_anggota'])) {
 											'$status_anggota')";
 	mysqli_query($conn, $query);
 	if (mysqli_affected_rows($conn) > 0) {
+
+			//get Id anggota
+		$getIdInster = mysqli_insert_id($conn);
+		// TAMBAH AKUN LOGIN ANGGOTA
+		$queryAkunAnggota = "INSERT INTO tb_akun VALUES (NULL, '$getIdInster', '$username', '$password', '$level_akun', '$status_anggota')";
+		mysqli_query($conn, $queryAkunAnggota);
 		move_uploaded_file($file_tmp, 'foto/'.$foto_anggota);
 		plugins(); ?>
 		<script>
