@@ -146,7 +146,7 @@ foreach($jadwal as $dta) {
             </a>
           </li>
           <li class="nav-header"></li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -193,7 +193,7 @@ foreach($jadwal as $dta) {
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
@@ -211,7 +211,7 @@ foreach($jadwal as $dta) {
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -231,7 +231,7 @@ foreach($jadwal as $dta) {
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Approve</p>
                 </a>
-              </li><br>
+              </li>
             </ul>
           </li>
 
@@ -265,6 +265,8 @@ foreach($jadwal as $dta) {
               </p>
             </a>
           </li>
+          <li class="nav-header"></li>
+          <li class="nav-header"></li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
