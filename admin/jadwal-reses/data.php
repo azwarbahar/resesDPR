@@ -1,5 +1,7 @@
 <?php
-require '../../template/header.php';
+require '../template/header/header.php';
+
+$jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -47,46 +49,53 @@ require '../../template/header.php';
                   </tr>
                   </thead>
                   <tbody>
-
+                  <?php $i = 1; foreach($jadwal as $dta) { ?>
                   <tr>
-                    <td>1</td>
-                    <td>Semester I</td>
-                    <td>12 Januari 2020</td>
-                    <td>12 April 2020</td>
+                    <td style="text-align:center"><?= $i ?></td>
+                    <td><?= $dta['nama_jadwal']?></td>
+                    <td><?= $dta['mulai_jadwal']?></td>
+                    <td><?= $dta['akhir_jadwal']?></td>
                     <td><a href="#">9 Laporan</a></td>
-                    <td style="text-align:center"><span class="badge bg-success">Selesai</span></td>
+                    <?php
+                      if ($dta['status_jadwal'] == "Menunggu"){
+                        echo "<td style='text-align:center'><span class='badge bg-secondary'>Menunggu</span></td>";
+                      } else if ($dta['status_jadwal'] == "Berjalan"){
+                        echo "<td style='text-align:center'><span class='badge bg-primary'>Berjalan</span></td>";
+                      } else if ($dta['status_jadwal'] == "Selesai"){
+                        echo "<td style='text-align:center'><span class='badge bg-success'>Selesai</span></td>";
+                      }
+                    ?>
                     <td style="text-align:center">
-                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="edit.php?id_jadwal=<?= $dta['id_jadwal'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_jadwal'] ?>" ><i class="fa fa-trash"></i></a>
                     </td>
                   </tr>
 
-                  <tr>
-                    <td>2</td>
-                    <td>Semester II</td>
-                    <td>12 Mei 2020</td>
-                    <td>12 Agustus 2020</td>
-                    <td><a href="#">20 Laporan</a></td>
-                    <td style="text-align:center"><span class="badge bg-primary">Berjalan</span></td>
-                    <td style="text-align:center">
-                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                    </td>
-                  </tr>
+      <!-- Modal Hapus -->
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_jadwal'] ?>">
+        <div class="modal-dialog">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h4 class="modal-title">Hapus Jadwal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Yakin Ingin Menghapus Jadwal</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
+              <a href="controller.php?hapus_jadwal=true&id_jadwal=<?= $dta['id_jadwal'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
-                  <tr>
-                    <td>3</td>
-                    <td>Semester III</td>
-                    <td>12 September 2020</td>
-                    <td>12 Desember 2020</td>
-                    <td><a href="#">- Laporan</a></td>
-                    <td style="text-align:center"><span class="badge bg-secondary">Menunggu</span></td>
-                    <td style="text-align:center">
-                        <a href="edit.php" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                    </td>
-                  </tr>
-
+                  <?php $i = $i + 1; } ?>
                   </tbody>
 
                 </table>
@@ -107,5 +116,5 @@ require '../../template/header.php';
 
 
 <?php
-require '../../template/footer.php';
+require '../template/footer/footer.php';
 ?>

@@ -4,6 +4,33 @@ require('../../koneksi.php');
 if (!isset($_SESSION['login_admin'])) {
   header("location: ../login.php");
 }
+
+// CEK DURASI JADWAL RESES
+  //cek tgl sekarang
+$tanggal_sekarang = date('d-m-Y');
+
+$jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
+
+foreach($jadwal as $dta) {
+
+  $status = null;
+  $tanggal_mulai = date('d-m-Y', strtotime($dta['mulai_jadwal']));
+  $tanggal_akhir = date('d-m-Y', strtotime($dta['akhir_jadwal']));
+  if (strtotime($tanggal_sekarang) < strtotime($tanggal_mulai)) {
+    $status = 'Menunggu';
+  } else if (strtotime($tanggal_mulai) <= strtotime($tanggal_sekarang) &&
+         strtotime($tanggal_akhir) >= strtotime($tanggal_sekarang)) {
+          $status = 'Berjalan';
+  } else if (strtotime($tanggal_sekarang) > strtotime($tanggal_akhir)) {
+    $status = 'Selesai';
+  }
+
+  $query = "UPDATE tb_jadwal SET status_jadwal = '$status' WHERE id_jadwal = '$dta[id_jadwal]'";
+	mysqli_query($conn, $query);
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
