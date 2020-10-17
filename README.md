@@ -2,9 +2,13 @@
 Webiste Reses DPRD Kabupaten Soppeng Sulse, Sebagai Tugas Akhir Kuliah Jurusan Sistem Informasi
 
 
+
+
 ## Cara Download
 
 Downlaod di [sini](https://github.com/azwarbahar07/resesDPR/archive/master.zip)
+
+
 
 
 ## Extrak Folder
@@ -20,6 +24,8 @@ reses-dprd
 ```
 
 
+
+
 ## Buat Database
 
 Buat database dengan nama
@@ -28,6 +34,8 @@ reses_dprd_soppeng
 ```
 
 Lalu Import tabel [ini](https://github.com/azwarbahar07/resesDPR/blob/master/reses_dprd_soppeng.sql)
+
+
 
 
 ## Koneksi
@@ -42,31 +50,96 @@ $conn = mysqli_connect("localhost", "root", "", "reses_dprd_soppeng");
 ```
 
 
+
+
+
+## Akun DEMO
+
+Admin
+
+```bash
+username : admin
+password : admin
+```
+
+Anggota DPR
+
+```bash
+username : riswan
+password : riswan
+```
+
+
+
+
+
 ## Progres Project
-- [ ] Progres dan - [x] Selesai
+
+Ket :
+- [ ] Belum
+- [x] Selesai
+
 
 ### Admin
+```bash
 - [ ] Dashboard
-Master Data
-- [ ] Jadwal Reses CRUD
-- [x] Partai CRUD
-- [x] Fraksi CRUD
-- [x] Dapil CRUD
-- [x] Komisi CRUD
-Anggota DPR
-- [x] Anggota DPR Tabel
-- [x] Anggota DPR Create
-- [ ] Anggota DPR Update
-- [x] Anggota DPR Delete
-- [ ] Anggota DPR Read/Detail
-Laporan
+
+#### Master Data
+  Jadwal Reses
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Partai
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Fraksi
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Dapil
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Komisi
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+#### Anggota DPR
+  Anggota
+  - [x] Create
+  - [ ] Read/Detail
+  - [x] Update
+  - [x] Delete
+
+#### Laporan
 - [ ] Laporan Masuk
 - [ ] Laporan Approve
-Setting
-- [ ] Admin
-- [x] Tema
-- [x] Logout
 
-### Admin
+#### Setting
+  Admin
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Tema
+  - [x] Selesai
+  
+  Logout
+  - [x] Success
+```
+
+
+### Anggota DPR
 
 Soon
