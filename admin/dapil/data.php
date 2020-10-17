@@ -11,7 +11,7 @@ $dapil = mysqli_query($conn, "SELECT * FROM tb_dapil");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Fraksi</h1>
+            <h1 class="m-0 text-dark">Dapil</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

@@ -51,6 +51,9 @@ foreach($jadwal as $dta) {
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+<!-- bootstrap-switch-button -->
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="/reses-dprd/assets/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->

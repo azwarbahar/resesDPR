@@ -14,7 +14,7 @@ require '../template/header/header.php';
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/reses-dprd/admin/">Home</a></li>
-              <li class="breadcrumb-item"><a href="/reses-dprd/admin/layout/profile-dpr/data.php">Anggota DPR</a></li>
+              <li class="breadcrumb-item"><a href="/reses-dprd/admin/profile-dpr/data.php">Anggota DPR</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div><!-- /.col -->
@@ -219,6 +219,7 @@ require '../template/header/header.php';
                     ?>
                 </select>
               </div>
+
             </div>
             <!-- /.card-body -->
           </div>

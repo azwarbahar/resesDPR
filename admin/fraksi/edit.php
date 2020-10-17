@@ -58,9 +58,7 @@ $dta = mysqli_fetch_assoc($result1);
                         } else {
                           $selected = '';
                         }
-                        // echo "<option value='$row[id_partai]'>$row[nama_partai]</option>";
                         echo "<option value='$row[id_partai]' $selected >$row[nama_partai]</option> ";
-
                       }
                     ?>
                   </select>

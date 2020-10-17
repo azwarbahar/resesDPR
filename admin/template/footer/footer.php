@@ -40,6 +40,8 @@
 <script src="/reses-dprd/assets/plugins/chart.js/Chart.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="/reses-dprd/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- Summernote -->
 <script src="/reses-dprd/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
@@ -50,6 +52,8 @@
 <script src="/reses-dprd/assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/reses-dprd/assets/dist/js/demo.js"></script>
+<!-- bootstrap-switch-button -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
 
 <!-- page script -->
 <script>
@@ -101,14 +105,20 @@
       options: donutOptions
     })
 
-  });
-</script>
-<script type="text/javascript">
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
 
-function readURL(input) {
+
+  })
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+  });
+
+  function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 

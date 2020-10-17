@@ -75,26 +75,60 @@ if (isset($_POST['submit_anggota'])) {
 
 
 // UPDATE ANGGOTA
-if (isset($_POST['edit_partai'])) {
+if (isset($_POST['update_anggota'])) {
+
+	// CARD BIODATA
+	$id_anggota = $_POST['id_anggota'];
+	$nama_anggota = $_POST['nama_lengkap'];
+	$alamat_anggota = $_POST['alamat'];
+	$tempat_lahir_anggota = $_POST['tempat_lahir'];
+		//Tanggal Lahir
+	$tanggal = $_POST['tanggal_lahir_anggota_old'];
+
+	$agama_anggota = $_POST['agama'];
+	$status_kawin = $_POST['status_kawin'];
+
+	// $username = $_POST['username'];
+
+
+	//CARD PROFIL ANGGOTA DEWAN
+	$jabatan_anggota = $_POST['jabatan'];
 	$id_partai = $_POST['id_partai'];
-	$nama_partai = $_POST['nama_partai'];
+	$id_dapil = $_POST['id_dapil'];
+	$id_komisi = $_POST['id_komisi'];
+	$id_fraksi = $_POST['id_fraksi'];
+
+	// CARD FOTO
+	$status_anggota = "Aktif";
 
     // SET FOTO
-	if ($_FILES['gambar_partai']['name'] != '') {
-		$foto = $_FILES['gambar_partai']['name'];
+	if ($_FILES['foto_anggota']['name'] != '') {
+		$foto = $_FILES['foto_anggota']['name'];
 		$ext = pathinfo($foto, PATHINFO_EXTENSION);
-		$nama_foto = "image_".time().".".$ext;
-		$file_tmp = $_FILES['gambar_partai']['tmp_name'];
+		$foto_anggota = "image_anggota_".time().".".$ext;
+		$file_tmp = $_FILES['foto_anggota']['tmp_name'];
 		// HAPUS OLD FOTO
-		$target = "gambar/".$_POST['foto_now'];
+		$target = "foto/".$_POST['foto_now'];
 		if (file_exists($target) && $_POST['foto_now'] != 'default.png') unlink($target);
 		// UPLOAD NEW FOTO
-		move_uploaded_file($file_tmp, 'gambar/'.$nama_foto);
+		move_uploaded_file($file_tmp, 'foto/'.$foto_anggota);
 	} else {
-		$nama_foto = $_POST['foto_now'];
+		$foto_anggota = $_POST['foto_now'];
 	}
 
-		$query = "UPDATE tb_partai SET nama_partai = '$nama_partai', gambar_partai = '$nama_foto' WHERE id_partai = '$id_partai'";\
+		$query = "UPDATE tb_anggota SET nama_anggota = '$nama_anggota',
+										alamat_anggota = '$alamat_anggota',
+										tempat_lahir_anggota = '$tempat_lahir_anggota',
+										tanggal_lahir_anggota = '$tanggal',
+										agama_anggota = '$agama_anggota',
+										status_kawin = '$status_kawin',
+										jabatan_anggota = '$jabatan_anggota',
+										id_partai = '$id_partai',
+										id_dapil = '$id_dapil',
+										id_komisi = '$id_komisi',
+										id_fraksi = '$id_fraksi',
+										foto_anggota = '$foto_anggota'
+									WHERE id_anggota = '$id_anggota'";
 
 	// EDIT PARTAI
 	mysqli_query($conn, $query);
@@ -104,7 +138,7 @@ if (isset($_POST['edit_partai'])) {
 			$(document).ready(function() {
 				swal({
 					title: 'Berhasil',
-					text: 'Data Partai berhasil diubah',
+					text: 'Data Anggota berhasil diubah',
 					icon: 'success'
 				}).then((data) => {
 					location.href = 'data.php';
