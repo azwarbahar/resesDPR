@@ -5,6 +5,17 @@ if (!isset($_SESSION['login_admin'])) {
   header("location: ../login.php");
 }
 
+// Set Nama Dan Foto Header
+$get_id_session = $_SESSION['get_id'];
+$query_header_akun = mysqli_query($conn, "SELECT * FROM tb_akun WHERE id = '$get_id_session'");
+$get_data_akun = mysqli_fetch_assoc($query_header_akun);
+$get_id_akun_admin = $get_data_akun['id_akun'];
+$query_header_admin = mysqli_query($conn, "SELECT * FROM tb_admin WHERE id_admin = '$get_id_akun_admin'");
+$get_data_admin = mysqli_fetch_assoc($query_header_admin);
+$nama = $get_data_admin['nama_admin'];
+$foto = $get_data_admin['foto_admin'];
+
+
 // CEK DURASI JADWAL RESES
   //cek tgl sekarang
 $tanggal_sekarang = date('d-m-Y');
@@ -127,10 +138,11 @@ foreach($jadwal as $dta) {
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/reses-dprd/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/reses-dprd/admin/user/foto/<?= $foto ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="../user/edit.php?id_admin=<?= $get_id_akun_admin ?>" class="d-block"><?= $nama ?></a>
+          <a href="../user/edit.php?id_admin=<?= $get_id_akun_admin ?>"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
