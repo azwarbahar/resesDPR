@@ -33,7 +33,7 @@ Buat database dengan nama
 reses_dprd_soppeng
 ```
 
-Lalu Import tabel [ini](https://github.com/azwarbahar07/resesDPR/blob/master/reses_dprd_soppeng.sql)
+Lalu Import tabel [reses_dprd_soppeng.sql](https://github.com/azwarbahar07/resesDPR/blob/master/reses_dprd_soppeng.sql)
 
 
 
