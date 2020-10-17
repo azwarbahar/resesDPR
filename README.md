@@ -52,6 +52,27 @@ $conn = mysqli_connect("localhost", "root", "", "reses_dprd_soppeng");
 
 
 
+
+## Akun DEMO
+
+Admin
+
+```bash
+username : admin
+password : admin
+```
+
+Anggota DPR
+
+```bash
+username : riswan
+password : riswan
+```
+
+
+
+
+
 ## Progres Project
 
 Ket :
@@ -105,9 +126,17 @@ Ket :
 - [ ] Laporan Approve
 
 #### Setting
-- [ ] Admin
-- [x] Tema
-- [x] Logout
+  Admin
+  - [x] Create
+  - [x] Read
+  - [x] Update
+  - [x] Delete
+  
+  Tema
+  - [x] Selesai
+  
+  Logout
+  - [x] Success
 ```
 
 
