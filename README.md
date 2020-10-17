@@ -51,7 +51,8 @@ Ket :
 
 ### Admin
 - [ ] Dashboard
-Master Data
+
+#### Master Data
 - [x] Jadwal Reses CRUD
 - [x] Partai CRUD
 - [x] Fraksi CRUD
@@ -62,10 +63,12 @@ Master Data
 - [x] Anggota DPR Update
 - [x] Anggota DPR Delete
 - [ ] Anggota DPR Read/Detail
-Laporan
+
+#### Laporan
 - [ ] Laporan Masuk
 - [ ] Laporan Approve
-Setting
+
+#### Setting
 - [ ] Admin
 - [x] Tema
 - [x] Logout
