@@ -60,6 +60,7 @@ Ket :
 
 
 ### Admin
+```bash
 - [ ] Dashboard
 
 #### Master Data
@@ -107,8 +108,7 @@ Ket :
 - [ ] Admin
 - [x] Tema
 - [x] Logout
-
-
+```
 
 
 ### Anggota DPR
