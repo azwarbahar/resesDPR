@@ -243,7 +243,7 @@ foreach($jadwal as $dta) {
 
 
           <li class="nav-item">
-            <a href="/reses-dprd/admin/user/data-user.php" class="nav-link">
+            <a href="/reses-dprd/admin/user/data.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Admin

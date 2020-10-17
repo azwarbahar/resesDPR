@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $result = mysqli_query($conn, "SELECT * FROM tb_akun WHERE username = '$username'");
+  $result = mysqli_query($conn, "SELECT * FROM tb_akun WHERE username = '$username' AND status = 'Aktif'");
   $get = mysqli_fetch_assoc($result);
 
   if ($get) {
