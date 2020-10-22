@@ -1,3 +1,49 @@
+<?php
+require('../../koneksi.php');
+
+if (!isset($_SESSION['login_dpr'])) {
+  header("location: ../login.php");
+}
+
+// Set Nama Dan Foto Header
+$get_id_session = $_SESSION['get_id'];
+$query_header_akun = mysqli_query($conn, "SELECT * FROM tb_akun WHERE id = '$get_id_session'");
+$get_data_akun = mysqli_fetch_assoc($query_header_akun);
+$get_id_akun_anggota = $get_data_akun['id_akun'];
+$query_header_anggota = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota = '$get_id_akun_anggota'");
+$get_data_anggota = mysqli_fetch_assoc($query_header_anggota);
+$nama = $get_data_anggota['nama_anggota'];
+$foto = $get_data_anggota['foto_anggota'];
+
+
+// CEK DURASI JADWAL RESES
+  //cek tgl sekarang
+// $tanggal_sekarang = date('d-m-Y');
+
+// $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
+
+// foreach($jadwal as $dta) {
+
+//   $status = null;
+//   $tanggal_mulai = date('d-m-Y', strtotime($dta['mulai_jadwal']));
+//   $tanggal_akhir = date('d-m-Y', strtotime($dta['akhir_jadwal']));
+//   if (strtotime($tanggal_sekarang) < strtotime($tanggal_mulai)) {
+//     $status = 'Menunggu';
+//   } else if (strtotime($tanggal_mulai) <= strtotime($tanggal_sekarang) &&
+//          strtotime($tanggal_akhir) >= strtotime($tanggal_sekarang)) {
+//           $status = 'Berjalan';
+//   } else if (strtotime($tanggal_sekarang) > strtotime($tanggal_akhir)) {
+//     $status = 'Selesai';
+//   }
+
+//   $query = "UPDATE tb_jadwal SET status_jadwal = '$status' WHERE id_jadwal = '$dta[id_jadwal]'";
+// 	mysqli_query($conn, $query);
+
+// }
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +58,12 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  
   <!-- DataTables -->
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+<!-- bootstrap-switch-button -->
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
 
   <!-- Theme style -->
   <link rel="stylesheet" href="/reses-dprd/assets/dist/css/adminlte.min.css">
@@ -35,7 +83,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/reses-dprd/anggota-dpr/index.php" class="nav-link">Home</a>
+        <a href="/reses-dprd/anggota-dpr/home" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -50,13 +98,36 @@
         </div>
       </div>
     </form>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Pemberitahuan</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 Laporan Terbaru
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">Lihat Semua</a>
+        </div>
+      </li>
+
+    </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/reses-dprd/anggota-dpr/index.php" class="brand-link">
+    <a href="/reses-dprd/admin/index.php" class="brand-link">
       <img src="/reses-dprd/assets/dist/img/soppeng.png" alt="Logo Kabupaten Soppeng" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">RESES DPRD</span>
@@ -67,10 +138,11 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/reses-dprd/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/reses-dprd/admin/profile-dpr/foto/<?= $foto ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">BANG JAGO</a>
+          <a href="#" class="d-block"><?= $nama ?></a>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
@@ -80,7 +152,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-          <li class="nav-item has-treeview menu-open">
+               <li class="nav-item has-treeview menu-open">
             <a href="/reses-dprd/anggota-dpr/" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -88,20 +160,15 @@
               </p>
             </a>
           </li>
-
-
           <li class="nav-header">Master Data</li>
-
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a href="/reses-dprd/anggota-dpr/layout/profile-dpr/data.php" class="nav-link">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
-                Profile Anggota DPR
+                Profile
               </p>
             </a>
-          </li> -->
-
-
+          </li>
           <li class="nav-item has-treeview">
             <a href="/reses-dprd/anggota-dpr/layout/jadwal-reses/data.php" class="nav-link">
               <i class="nav-icon fa fa-calendar-check"></i>
@@ -110,43 +177,43 @@
               </p>
             </a>
           </li>
-
-
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="/reses-dprd/anggota-dpr/layout/dapil/data.php" class="nav-link">
               <i class="nav-icon fa fa-university"></i>
               <p>
                 Dapil
               </p>
             </a>
-          </li>
+          </li> -->
 
+          <li class="nav-header">Laporan</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/tambah-laporan/data.php" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
-              <p>Laporan Masuk</p>
+              <p>Laporan</p>
             </a>
           </li>
-
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-check-square"></i>
+              <p>Laporan Approve</p>
+            </a>
+          </li>
+          <li class="nav-header"></li>
           <li class="nav-item">
             <a  href="/reses-dprd/logout.php?logout=true&for=login_dpr" class="nav-link">
               <i class="nav-icon fa fa-power-off"></i>
               <p>Logout</p>
             </a>
           </li>
-
           <!-- <li class="nav-header">LAPORAN</li> -->
-
-
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Laporan Approve</p>
             </a>
           </li> -->
-
           <!-- <li class="nav-header">Admin</li> -->
-
           <!-- <li class="nav-item">
             <a href="/reses-dprd/anggota-dpr/layout/user/data-user.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
@@ -158,6 +225,8 @@
 
 
         </ul>
+
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
