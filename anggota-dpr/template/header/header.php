@@ -188,17 +188,17 @@ $foto = $get_data_anggota['foto_anggota'];
 
           <li class="nav-header">Laporan</li>
           <li class="nav-item">
-            <a href="/reses-dprd/anggota-dpr/tambah-laporan/data.php" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/reses/data.php" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
-              <p>Laporan</p>
+              <p>Reses</p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/reses-dprd/anggota-dpr/laporan-approve/data.php" class="nav-link">
               <i class="nav-icon fas fa-check-square"></i>
               <p>Laporan Approve</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-header"></li>
           <li class="nav-item">
             <a  href="/reses-dprd/logout.php?logout=true&for=login_dpr" class="nav-link">

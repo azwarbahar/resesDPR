@@ -1,8 +1,10 @@
 <?php
 require '../template/header/header.php';
 
-$laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE (id_anggota=$get_id_akun_anggota AND status_laporan='Pending') OR
-                                                                status_laporan='Masuk'");
+$jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
+$dta_jadwal = mysqli_fetch_assoc($jadwal);
+$jadwal_laporan = $dta_jadwal['id_jadwal'] ;
+$lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$get_id_akun_anggota AND id_jadwal='$jadwal_laporan'");
 
 ?>
 
@@ -13,12 +15,12 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE (id_anggota=$get_
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Laporan</h1>
+            <h1 class="m-0 text-dark">Reses</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/reses-dprd/anggota-dpr/">Home</a></li>
-              <li class="breadcrumb-item active">Laporan</li>
+              <li class="breadcrumb-item active">Lokasi Reses</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -34,7 +36,7 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE (id_anggota=$get_
 
             <div class="card">
               <div class="card-header">
-                <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Laporan</a>
+                <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -42,63 +44,47 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE (id_anggota=$get_
                   <thead>
                     <tr>
                     <th>No</th>
-                    <th>Kegiatan</th>
-                    <th>SKPD</th>
                     <th>Lokasi</th>
-                    <th>Status</th>
+                    <th>tanggal</th>
+                    <th>Dokumentasi</th>
+                    <th>Aspirasi</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                   <?php
-                   $i = 1; foreach($laporan as $dta) {
+                   $i = 1; foreach($lokasi as $dta) {
                     ?>
                   <tr>
                     <td style="text-align:center"><?= $i ?></td>
-                    <td><?= $dta['kegiatan'] ?></td>
-                    <td><?= $dta['skpd'] ?></td>
-                    <td><?= $dta['lokasi'] ?></td>
-                    <?php
-                      if ($dta['status_laporan'] == "Pending"){
-                        echo "<td style='text-align:center'><span class='badge bg-secondary'>Pending</span></td>";
-                      } else if ($dta['status_laporan'] == "Masuk"){
-                        echo "<td style='text-align:center'><span class='badge bg-success'>Masuk</span></td>";
-                      }
-                    ?>
+                    <td><?= $dta['nama_lokasi'] ?></td>
+                    <td><?= $dta['tanggal_lokasi'] ?></td>
+                    <td style="text-align:center"><a href="#"><i>Dokumentasi..</i></a></td>
+                    <td style="text-align:center"><a href="data-aspirasi.php?id_lokasi=<?= $dta['id_lokasi'] ?>"><i>Lihat Aspirasi</i></a></td>
                       <td style="text-align:center">
-                      <form method="POST" action="controller.php" enctype="multipart/form-data">
-                      <input type="text" hidden name="status_laporan" id="status_laporan" value="<?= $dta['status_laporan'] ?>">
-                      <input type="text" hidden name="id_laporan" id="id_laporan" value="<?= $dta['id_laporan'] ?>">
-                    <?php
-                      if ($dta['status_laporan'] == "Pending"){
-                        echo "<button type='submit' name='update_status_laporan' class='btn btn-primary'><i class='fa fa-check'></i></button>";
-                      } else if ($dta['status_laporan'] == "Masuk"){
-                        echo "<button type='submit' name='update_status_laporan' class='btn btn-info'><i class='fa fa-times'></i></button>";
-                      }
-                    ?>
                         <!-- <button type="submit" name="update_status_laporan" class="btn btn-primary"><i class="fa fa-check"></i></button> -->
-                        <a href="edit.php?id_laporan=<?= $dta['id_laporan'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_laporan'] ?>" ><i class="fa fa-trash"></i></a>
+                        <a href="edit.php?id_lokasi=<?= $dta['id_lokasi'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_lokasi'] ?>" ><i class="fa fa-trash"></i></a>
                         </form>
                     </td>
                   </tr>
 
       <!-- Modal Hapus -->
-      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_laporan'] ?>">
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_lokasi'] ?>">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h4 class="modal-title">Hapus Laporan</h4>
+              <h4 class="modal-title">Hapus Lokasi Reses</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>Yakin Ingin Menghapus Laporan</p>
+              <p>Yakin Ingin Menghapus Lokasi Reses</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
-              <a href="controller.php?hapus_laporan=true&id_laporan=<?= $dta['id_laporan'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
+              <a href="controller.php?hapus_lokasi_reses=true&id_lokasi=<?= $dta['id_lokasi'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
             </div>
           </div>
           <!-- /.modal-content -->

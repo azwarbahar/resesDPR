@@ -242,7 +242,7 @@ foreach($jadwal as $dta) {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/reses-dprd/admin/laporan-approve/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Approve</p>
                 </a>
