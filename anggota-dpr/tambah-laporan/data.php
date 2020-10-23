@@ -77,28 +77,28 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE (id_anggota=$get_
                       }
                     ?>
                         <!-- <button type="submit" name="update_status_laporan" class="btn btn-primary"><i class="fa fa-check"></i></button> -->
-                        <a href="#" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_komisi'] ?>" ><i class="fa fa-trash"></i></a>
+                        <a href="edit.php?id_laporan=<?= $dta['id_laporan'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_laporan'] ?>" ><i class="fa fa-trash"></i></a>
                         </form>
                     </td>
                   </tr>
 
       <!-- Modal Hapus -->
-      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_komisi'] ?>">
+      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_laporan'] ?>">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h4 class="modal-title">Hapus Komisi</h4>
+              <h4 class="modal-title">Hapus Laporan</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>Yakin Ingin Menghapus Komisi</p>
+              <p>Yakin Ingin Menghapus Laporan</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
-              <a href="controller.php?hapus_komisi=true&id_komisi=<?= $dta['id_komisi'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
+              <a href="controller.php?hapus_laporan=true&id_laporan=<?= $dta['id_laporan'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
             </div>
           </div>
           <!-- /.modal-content -->

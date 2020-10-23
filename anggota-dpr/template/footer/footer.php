@@ -26,10 +26,10 @@
 <!-- Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="../../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../..//../assetsplugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../assetsplugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 <!-- jQuery Knob Chart -->
 <script src="/reses-dprd/assets/plugins/jquery-knob/jquery.knob.min.js"></script>

@@ -162,7 +162,7 @@ $foto = $get_data_anggota['foto_anggota'];
           </li>
           <li class="nav-header">Master Data</li>
           <li class="nav-item">
-            <a href="/reses-dprd/anggota-dpr/layout/profile-dpr/data.php" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/profile-dpr/data.php" class="nav-link">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
                 Profile
@@ -170,7 +170,7 @@ $foto = $get_data_anggota['foto_anggota'];
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="/reses-dprd/anggota-dpr/layout/jadwal-reses/data.php" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/jadwal-reses/data.php" class="nav-link">
               <i class="nav-icon fa fa-calendar-check"></i>
               <p>
                 Jadwal Reses
@@ -194,7 +194,7 @@ $foto = $get_data_anggota['foto_anggota'];
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/reses-dprd/anggota-dpr/laporan-approve/data.php" class="nav-link">
               <i class="nav-icon fas fa-check-square"></i>
               <p>Laporan Approve</p>
             </a>
