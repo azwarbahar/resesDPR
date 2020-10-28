@@ -193,12 +193,13 @@ $foto = $get_data_anggota['foto_anggota'];
               <p>Reses</p>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a href="/reses-dprd/anggota-dpr/laporan-approve/data.php" class="nav-link">
-              <i class="nav-icon fas fa-check-square"></i>
-              <p>Laporan Approve</p>
+
+          <li class="nav-item">
+            <a href="/reses-dprd/anggota-dpr/riwayat-reses/data.php" class="nav-link">
+              <i class="nav-icon fas fa-file-archive"></i>
+              <p>Riwayat Reses</p>
             </a>
-          </li> -->
+          </li>
           <li class="nav-header"></li>
           <li class="nav-item">
             <a  href="/reses-dprd/logout.php?logout=true&for=login_dpr" class="nav-link">

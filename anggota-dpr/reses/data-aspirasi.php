@@ -1,6 +1,7 @@
 <?php
 require '../template/header/header.php';
 
+$id_jadwal = $_GET['id_jadwal'];
 $id_lokasi = $_GET['id_lokasi'];
 $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_lokasi='$id_lokasi'");
 $dta_lokasi = mysqli_fetch_assoc($lokasi);
@@ -37,7 +38,7 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
 
             <div class="card">
               <div class="card-header">
-                <a href="tambah-aspirasi.php?id_lokasi=<?= $id_lokasi ?>" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Aspirasi</a>
+                <a href="tambah-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Aspirasi</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -62,9 +63,10 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
                     <td><?= $dta['lokasi'] ?></td>
                       <td style="text-align:center">
                       <form method="POST" action="controller.php" enctype="multipart/form-data">
+                      <input type="text" hidden name="id_jadwal" id="id_jadwal" value="<?= $id_jadwal ?>">
                       <input type="text" hidden name="id_aspirasi" id="id_aspirasi" value="<?= $dta['id_aspirasi'] ?>">
                         <!-- <button type="submit" name="update_status_laporan" class="btn btn-primary"><i class="fa fa-check"></i></button> -->
-                        <a href="edit-aspirasi.php?id_aspirasi=<?= $dta['id_aspirasi'] ?>&id_lokasi=<?= $id_lokasi ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="edit-aspirasi.php?id_aspirasi=<?= $dta['id_aspirasi'] ?>&id_lokasi=<?= $id_lokasi ?>&id_jadwal=<?= $id_jadwal ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_aspirasi'] ?>" ><i class="fa fa-trash"></i></a>
                         </form>
                     </td>
@@ -85,7 +87,7 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
-              <a href="controller.php?hapus_aspirasi=true&id_aspirasi=<?= $dta['id_aspirasi'] ?>&id_lokasi=<?= $id_lokasi ?>" type="button" class="btn btn-outline-light">Hapus</a>
+              <a href="controller.php?hapus_aspirasi=true&id_aspirasi=<?= $dta['id_aspirasi'] ?>&id_lokasi=<?= $id_lokasi ?>&id_jadwal=<?= $id_jadwal ?>" type="button" class="btn btn-outline-light">Hapus</a>
             </div>
           </div>
           <!-- /.modal-content -->

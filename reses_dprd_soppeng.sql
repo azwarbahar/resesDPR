@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Okt 2020 pada 19.30
+-- Waktu pembuatan: 28 Okt 2020 pada 16.52
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -66,7 +66,6 @@ INSERT INTO `tb_akun` (`id`, `id_akun`, `username`, `password`, `level_akun`, `s
 (1, '1', 'admin', '$2y$10$dw3996inoENCYr7ppG4V0eEtk9fB3WuSxPtUjEnz7gJm7F65rPa/i', 'admin', 'Aktif'),
 (2, '2', 'anggota', '$2y$10$2.3Faw84gMTWiRtsKLy7.OKpNxgkq2KjT6xxUeXFgAV6SLTf0DqF6', 'dpr', 'Aktif'),
 (3, '3', 'riswan', '$2y$10$bGbcG.k6Diq.U4Fhx63pSOF6OVPu.oCYc7kszsgqCnR8D2M0y6vLK', 'dpr', 'Aktif'),
-(9, '5', 'azwar', '$2y$10$fwTl3KQdFOeN6r9IsNtaKe4evyc.YhtrmnYE2gWHSU7ID/6efNe6i', 'admin', 'Non Aktif'),
 (10, '6', 'azwar', '$2y$10$95tqIWQL7IdJM3Ye1r0B4.l6jj9PCvV3YgXJGV6lL06VuBD48utze', 'admin', 'Aktif');
 
 -- --------------------------------------------------------
@@ -100,6 +99,33 @@ INSERT INTO `tb_anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `tempa
 (1, 'H. Syahruddin M. Adam, S.Sos, MM', 'Jl. Sawah', 'Soppeng', '4 Februari 1967', 'Islam', 'Kawin', 'Ketua DPRD Kabupaten Soppeng', '1', '1', '1', '1', 'image_anggota_1602847361.jpg', 'Aktif'),
 (2, 'A.Mapparemma M, SE, MM', 'Jl. Bila Utara No. 28 Watansoppeng', 'Soppeng', '7 Mei 1964', 'Islam', 'Kawin', 'Wakil', '2', '1', '2', '3', 'image_anggota_1602943306.jpg', 'Aktif'),
 (3, 'H.Riswan,S.Sos', 'Makassar', 'Soppeng', '15 Agustus 1966', 'Islam', 'Kawin', 'Wakil II DPRD Kabupaten Soppeng', '4', '2', '2', '2', 'image_anggota_1602946152.jpg', 'Aktif');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_aspirasi`
+--
+
+CREATE TABLE `tb_aspirasi` (
+  `id_aspirasi` int(11) NOT NULL,
+  `id_lokasi` varchar(255) NOT NULL,
+  `id_anggota` varchar(225) NOT NULL,
+  `id_jadwal` varchar(100) NOT NULL,
+  `kegiatan` varchar(255) NOT NULL,
+  `skpd` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `status_aspirasi` varchar(255) NOT NULL,
+  `keterangan_aspirasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_aspirasi`
+--
+
+INSERT INTO `tb_aspirasi` (`id_aspirasi`, `id_lokasi`, `id_anggota`, `id_jadwal`, `kegiatan`, `skpd`, `lokasi`, `status_aspirasi`, `keterangan_aspirasi`) VALUES
+(1, '3', '3', '3', 'Berenang', 'Anggotayya', 'Kolam', 'Kirim', ''),
+(3, '1', '3', '3', 'libur2', 'apa ini', 'tess edit lagi tes', 'Kirim', ''),
+(4, '1', '3', '3', 'Tes', 'lagi', 'tambah edit', 'Kirim', '');
 
 -- --------------------------------------------------------
 
@@ -208,6 +234,28 @@ INSERT INTO `tb_komisi` (`id_komisi`, `nama_komisi`, `bidang_komisi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_lokasi_reses`
+--
+
+CREATE TABLE `tb_lokasi_reses` (
+  `id_lokasi` int(11) NOT NULL,
+  `id_anggota` varchar(255) NOT NULL,
+  `id_jadwal` text NOT NULL,
+  `nama_lokasi` varchar(255) NOT NULL,
+  `tanggal_lokasi` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_lokasi_reses`
+--
+
+INSERT INTO `tb_lokasi_reses` (`id_lokasi`, `id_anggota`, `id_jadwal`, `nama_lokasi`, `tanggal_lokasi`) VALUES
+(1, '3', '3', 'Sudiang', '2020-10-22'),
+(3, '3', '3', 'Antang', '2020-10-31');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_partai`
 --
 
@@ -249,6 +297,12 @@ ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
+-- Indeks untuk tabel `tb_aspirasi`
+--
+ALTER TABLE `tb_aspirasi`
+  ADD PRIMARY KEY (`id_aspirasi`);
+
+--
 -- Indeks untuk tabel `tb_dapil`
 --
 ALTER TABLE `tb_dapil`
@@ -279,6 +333,12 @@ ALTER TABLE `tb_komisi`
   ADD PRIMARY KEY (`id_komisi`);
 
 --
+-- Indeks untuk tabel `tb_lokasi_reses`
+--
+ALTER TABLE `tb_lokasi_reses`
+  ADD PRIMARY KEY (`id_lokasi`);
+
+--
 -- Indeks untuk tabel `tb_partai`
 --
 ALTER TABLE `tb_partai`
@@ -307,6 +367,12 @@ ALTER TABLE `tb_anggota`
   MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_aspirasi`
+--
+ALTER TABLE `tb_aspirasi`
+  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_dapil`
 --
 ALTER TABLE `tb_dapil`
@@ -328,13 +394,19 @@ ALTER TABLE `tb_fraksi`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_komisi`
 --
 ALTER TABLE `tb_komisi`
   MODIFY `id_komisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_lokasi_reses`
+--
+ALTER TABLE `tb_lokasi_reses`
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_partai`

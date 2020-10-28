@@ -43,17 +43,22 @@ if (isset($_POST['submit_lokasi_reses'])) {
 if (isset($_POST['submit_aspirasi'])) {
 	$id_lokasi = $_POST['id_lokasi'];
 	$id_anggota = $_POST['id_anggota'];
+	$id_jadwal = $_POST['id_jadwal'];
 	$kegiatan = $_POST['kegiatan'];
 	$skpd = $_POST['skpd'];
 	$lokasi = $_POST['lokasi'];
+	$status_aspirasi = "Simpan";
 
 
     // TAMBAH DATA
 	$query= "INSERT INTO tb_aspirasi VALUES (NULL, '$id_lokasi',
 												'$id_anggota',
+												'$id_jadwal',
 												'$kegiatan',
 												'$skpd',
-												'$lokasi')";
+												'$lokasi',
+												'$status_aspirasi',
+												'')";
 	mysqli_query($conn, $query);
 	if (mysqli_affected_rows($conn) > 0) {
 		plugins(); ?>
@@ -64,7 +69,7 @@ if (isset($_POST['submit_aspirasi'])) {
 					text: 'Data Aspirasi Berhasil ditambah!',
 					icon: 'success'
 				}).then((data) => {
-					location.href = "data-aspirasi.php?id_lokasi=<?= $id_lokasi ?>";
+					location.href = "data-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>";
 				});
 			});
 		</script>
@@ -102,7 +107,8 @@ if (isset($_POST['update_lokasi_reses'])) {
 
 // UPDATE ASPIRASI
 if (isset($_POST['update_aspirasi'])) {
-    $id_lokasi = $_POST['id_lokasi'];
+	$id_jadwal = $_POST['id_jadwal'];
+	$id_lokasi = $_POST['id_lokasi'];
     $id_aspirasi = $_POST['id_aspirasi'];
     $kegiatan = $_POST['kegiatan'];
     $skpd = $_POST['skpd'];
@@ -120,7 +126,7 @@ if (isset($_POST['update_aspirasi'])) {
 					text: 'Data Aspirasi berhasil diubah',
 					icon: 'success'
 				}).then((data) => {
-					location.href = 'data-aspirasi.php?id_lokasi=<?= $id_lokasi ?>';
+					location.href = 'data-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>';
 				});
 			});
 		</script>
@@ -159,6 +165,35 @@ if (isset($_POST['update_status_laporan'])){
 }
 
 
+
+// KIRIM RESES
+if (isset($_GET['kirim_reses'])){
+
+	$id_anggota = $_GET['id_anggota'];
+	$id_jadwal = $_GET['id_jadwal'];
+		$query = "UPDATE tb_aspirasi SET  status_aspirasi = 'Kirim' WHERE id_anggota = '$id_anggota' AND id_jadwal = '$id_jadwal' ";
+
+	// EDIT LAPORAN STATUS
+	mysqli_query($conn, $query);
+	if (mysqli_affected_rows($conn) > 0) {
+		plugins(); ?>
+		<script>
+			$(document).ready(function() {
+				swal({
+					title: 'Berhasil',
+					text: 'Reses Berhasil di Kirim',
+					icon: 'success'
+				}).then((data) => {
+					location.href = 'data.php';
+				});
+			});
+		</script>
+	<?php }
+
+}
+
+
+
 // HAPUS LOKASI RESES
 if (isset($_GET['hapus_lokasi_reses'])) {
 	$id_lokasi = $_GET['id_lokasi'];
@@ -186,6 +221,7 @@ if (isset($_GET['hapus_lokasi_reses'])) {
 if (isset($_GET['hapus_aspirasi'])) {
 	$id_aspirasi = $_GET['id_aspirasi'];
 	$id_lokasi = $_GET['id_lokasi'];
+	$id_jadwal = $_GET['id_jadwal'];
 
 	$query = "DELETE FROM tb_aspirasi WHERE id_aspirasi = '$id_aspirasi'";
 	mysqli_query($conn, $query);
@@ -198,7 +234,7 @@ if (isset($_GET['hapus_aspirasi'])) {
 					text: 'Data Aspirasi berhasil dihapus',
 					icon: 'success'
 				}).then((data) => {
-					location.href = 'data-aspirasi.php?id_lokasi=<?= $id_lokasi ?>';
+					location.href = 'data-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>';
 				});
 			});
 		</script>

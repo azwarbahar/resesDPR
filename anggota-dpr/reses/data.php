@@ -3,7 +3,7 @@ require '../template/header/header.php';
 
 $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
 $dta_jadwal = mysqli_fetch_assoc($jadwal);
-$jadwal_laporan = $dta_jadwal['id_jadwal'] ;
+$jadwal_laporan = $dta_jadwal['id_jadwal'];
 $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$get_id_akun_anggota AND id_jadwal='$jadwal_laporan'");
 
 ?>
@@ -36,7 +36,33 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
 
             <div class="card">
               <div class="card-header">
-                <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>
+              <form method="POST" action="controller.php" enctype="multipart/form-data">
+                  <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>
+                  <button type="button" data-toggle="modal" data-target="#modal-primary" class="float-right btn btn-success"><img src="/reses-dprd/assets/dist/img/send.png" style="max-width: 22px; max-height: 22px;" class="fa fa-send-secure">&nbsp Kirim Reses</button>
+
+                  <!-- Modal Kirim -->
+      <div class="modal fade" id="modal-primary">
+        <div class="modal-dialog">
+          <div class="modal-content bg-primary">
+            <div class="modal-header">
+              <h4 class="modal-title">Kirim Reses</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <p>Ingin Mengirim Reses Sekarang&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
+              <a href="controller.php?kirim_reses=true&id_anggota=<?= $get_id_akun_anggota.'&id_jadwal='. $jadwal_laporan ?>" type="button" class="btn btn-outline-light">Kirim</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+                </form>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -60,7 +86,7 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
                     <td><?= $dta['nama_lokasi'] ?></td>
                     <td><?= $dta['tanggal_lokasi'] ?></td>
                     <td style="text-align:center"><a href="#"><i>Dokumentasi..</i></a></td>
-                    <td style="text-align:center"><a href="data-aspirasi.php?id_lokasi=<?= $dta['id_lokasi'] ?>"><i>Lihat Aspirasi</i></a></td>
+                    <td style="text-align:center"><a href="data-aspirasi.php?id_lokasi=<?= $dta['id_lokasi'].'&id_jadwal='.$jadwal_laporan ?>"><i>Lihat Aspirasi</i></a></td>
                       <td style="text-align:center">
                         <!-- <button type="submit" name="update_status_laporan" class="btn btn-primary"><i class="fa fa-check"></i></button> -->
                         <a href="edit.php?id_lokasi=<?= $dta['id_lokasi'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>

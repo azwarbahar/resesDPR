@@ -1,6 +1,7 @@
 <?php
 require '../template/header/header.php';
 
+$id_jadwal = $_GET['id_jadwal'];
 $id_lokasi = $_GET['id_lokasi'];
 $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_lokasi='$id_lokasi'");
 $dta_lokasi = mysqli_fetch_assoc($lokasi);
@@ -63,10 +64,11 @@ $dta_lokasi = mysqli_fetch_assoc($lokasi);
               </div>
 
               <div class="col-12">
+                <input type="text" hidden id="id_jadwal" name="id_jadwal" value="<?= $id_jadwal ?>" class="form-control">
                 <input type="text" hidden id="id_lokasi" name="id_lokasi" value="<?= $id_lokasi ?>" class="form-control">
                 <input type="text" hidden id="id_anggota" name="id_anggota" value="<?= $get_id_akun_anggota ?>" class="form-control">
               <button type="submit" name="submit_aspirasi" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
-              <a href="/reses-dprd/anggota-dpr/reses/data-aspirasi.php?id_lokasi=<?= $id_lokasi ?>" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
+              <a href="/reses-dprd/anggota-dpr/reses/data-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
             </div>
