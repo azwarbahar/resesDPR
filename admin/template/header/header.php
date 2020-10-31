@@ -236,7 +236,7 @@ foreach($jadwal as $dta) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/reses-dprd/admin/laporan-masuk/data.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Masuk</p>
                 </a>
