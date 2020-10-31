@@ -55,11 +55,12 @@ $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
                     <td><?= $dta['nama_jadwal']?></td>
                     <td><?= $dta['mulai_jadwal']?></td>
                     <td><?= $dta['akhir_jadwal']?></td>
+                    <td style="text-align:center">9 Laporan</td>
                     <?php
-                      $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE id_jadwal='$dta[id_jadwal]'");
-                      $row = mysqli_num_rows($laporan);
-                      $rowfinal = $row;
-                      echo "<td style='text-align:center'>$rowfinal Laporan</td>";
+                      // $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE id_jadwal='$dta[id_jadwal]'");
+                      // $row = mysqli_num_rows($laporan);
+                      // $rowfinal = $row;
+                      // echo "<td style='text-align:center'>$rowfinal Laporan</td>";
 
                     ?>
                     <?php
