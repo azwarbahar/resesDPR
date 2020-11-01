@@ -1,7 +1,9 @@
 <?php
 require '../template/header/header.php';
 
-$laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='Approve'");
+$jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
+$dta_jadwal = mysqli_fetch_assoc($jadwal);
+$group_anggota = mysqli_query($conn, "SELECT id_anggota FROM tb_aspirasi GROUP BY id_anggota");
 
 ?>
 
@@ -12,12 +14,12 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='A
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Laporan Approve</h1>
+            <h1 class="m-0 text-dark">Laporan Masuk</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/reses-dprd/anggota-dpr/">Home</a></li>
-              <li class="breadcrumb-item active">Laporan Approve</li>
+              <li class="breadcrumb-item"><a href="/reses-dprd/admin/">Home</a></li>
+              <li class="breadcrumb-item active">Laporan Masuk</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,65 +34,39 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='A
           <div class="col-12">
 
             <div class="card">
-              <div class="card-header">
-                <!-- <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Laporan</a> -->
-              </div>
               <!-- /.card-header -->
               <div class="card-body">
+
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                     <th>No</th>
-                    <th>Kegiatan</th>
-                    <th>SKPD</th>
-                    <th>Lokasi</th>
-                    <th>Nama Dewan</th>
-                    <th>Fraksi</th>
-                    <th>Dapil</th>
+                    <th>Foto</th>
+                    <th>Nama</th>
+                    <th>Jadwal</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                   <?php
-                  //  $i = 1; foreach($laporan as $dta) {
+                    $i = 1;
+                    while($row_id_anggota=mysqli_fetch_assoc($group_anggota)) {
+                      $get_id_anggota = $row_id_anggota['id_anggota'];
+                      $get_anggota = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota='$get_id_anggota'");
+                      foreach( $get_anggota as $dta){
                     ?>
                   <tr>
-                    <td style="text-align: center;">1</td>
-                    <td>Pengaspalan jalan antara SMP 1 Marioriwawo sampai dengan KUA Kecamatan Marioriwawo	Dinas Pekerjaan Umum dan Penataan Ruang	RT Messi sampai dengan RT Juhari Kelurahan Tettikenrarae	H. SYAHRUDDIN M. ADAM, S.Sos, MM 	GOLONGAN KARYA	V</td>
-                    <td>Dinas Pekerjaan Umum dan Penataan Ruang</td>
-                    <td>RT Messi sampai dengan RT Juhari Kelurahan Tettikenrarae</td>
-                    <td>H. SYAHRUDDIN M. ADAM, S.Sos, MM </td>
-                    <td>GOLONGAN KARYA</td>
-                    <td style="text-align: center;">V</td>
-                    <td>approve</td>
+                    <td style="text-align: center;"><?= $i ?></td>
+                    <td style="text-align:center"><img src="/reses-dprd/admin/profile-dpr/foto/<?php echo $dta['foto_anggota'] ?>" alt="" border=3 height=60 width=60></img></td>
+                    <td><?= $dta['nama_anggota'] ?></td>
+                    <td><?= $dta_jadwal['nama_jadwal'] ?></td>
+                    <td class="text-center py-0 align-middle">
+                    <a href="../aspirasi-anggota/data.php?id_anggota=<?= $dta['id_anggota'] ?>" type="button" class="btn btn-success"><i class="fa fa-eye"></i>  Lihat Laporan</a>
+                    </td>
                   </tr>
 
-      <!-- Modal Hapus -->
-      <div class="modal fade" tabindex="-1" id="modal-danger<?= $dta['id_laporan'] ?>">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Hapus Laporan</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Yakin Ingin Menghapus Laporan</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
-              <a href="controller.php?hapus_laporan=true&id_laporan=<?= $dta['id_laporan'] ?>" type="button" class="btn btn-outline-light">Hapus</a>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-                  <?php 
-                  // $i = $i + 1; } 
+                      <?php  }
+                  $i = $i + 1; }
                   ?>
                   </tbody>
 
