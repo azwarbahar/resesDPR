@@ -195,11 +195,19 @@ $foto = $get_data_anggota['foto_anggota'];
           </li>
 
           <li class="nav-item">
+            <a href="/reses-dprd/anggota-dpr/reses-tolak/data.php" class="nav-link">
+              <i class="nav-icon fas fa fa-window-close"></i>
+              <p>Reses Ditolak</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/reses-dprd/anggota-dpr/riwayat-reses/data.php" class="nav-link">
               <i class="nav-icon fas fa-file-archive"></i>
               <p>Riwayat Reses</p>
             </a>
           </li>
+
           <li class="nav-header"></li>
           <li class="nav-item">
             <a  href="/reses-dprd/logout.php?logout=true&for=login_dpr" class="nav-link">
