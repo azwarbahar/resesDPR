@@ -38,33 +38,35 @@ require '../template/header/header.php';
                   <div class="col-3">
                     <div class="form-group">
                       <label for="inputName">Jadwal</label>
-                      <select class="form-control select2" style="width: 100%;" name="tanggal" id="tanggal">
-                        <option selected="selected" value="-">- Jadwal -</option>
+                      <select class="form-control select2" style="width: 100%;" name="jadwal_laporan" id="jadwal_laporan">
+                      <option selected="selected" value="-">- Jadwal -</option>
+                      <?php
+                        $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
+                        // $dta_jadwal = mysqli_fetch_assoc($jadwal);
+                        foreach($jadwal as $dta){
+                          echo "<option  value='$dta[id_jadwal]'>$dta[nama_jadwal]</option>";
+                        }
+                      ?>
                       </select>
+
+                      <input type="hidden" id="idanggota" value="<?= $get_id_akun_anggota ?>">
                     </div>
                   </div>
 
                   <div class="col-3">
                     <div class="form-group">
                       <label for="inputName">Lokasi</label>
-                      <select class="form-control select2" style="width: 100%;" name="tanggal" id="tanggal">
+                      <select class="form-control select2" style="width: 100%;" name="lokasi_laporan" id="lokasi_laporan">
                         <option selected="selected" value="-">- Lokasi -</option>
                       </select>
                     </div>
                   </div>
-
-                  <div class="col-1">
-                    <div class="form-group">
-                      <label for="inputName"></label>
-                      <button type="submit" name="submit_anggota" style="width: 100%;" class="btn btn-success" >Cari</button>
-                    </div>
-                  </div>
-
                 </div>
               </div>
               <!-- /.card-header -->
-              <!-- <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+              <div class="card-body">
+                
+              <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                     <th>No</th>
@@ -74,50 +76,12 @@ require '../template/header/header.php';
                     <th>Status</th>
                   </tr>
                   </thead>
-                  <tbody> -->
-                  <?php
-                  //  $i = 1; foreach($laporan as $dta) {
-                    ?>
-                  <!-- <tr>
-                    <td style="text-align:center">1</td>
-                    <td>.</td>
-                    <td>.</td>
-                    <td>.</td>
-                    <td style='text-align:center'><span class='badge bg-primary'>.</span></td>
+                  <tbody id="tabeldata">
+                  </tbody>
 
-                  </tr>
+                </table>
 
-      <!-- Modal Hapus -->
-      <!-- <div class="modal fade" tabindex="-1" id="modal-danger">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Hapus Laporan</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Yakin Ingin Menghapus Laporan</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
-              <a href="controller.php?hapus_laporan=true&id_laporan=#" type="button" class="btn btn-outline-light">Hapus</a>
-            </div>
-          </div> -->
-          <!-- /.modal-content -->
-        <!-- </div> -->
-        <!-- /.modal-dialog -->
-      <!-- </div> -->
-     
-
-                  <?php
-                  // $i = $i + 1; }
-                  ?>
-                  <!-- </tbody> -->
-
-                <!-- </table> -->
-              <!-- </div> -->
+              </div>
               <!-- /.card-body -->
             <!-- </div> -->
             <!-- /.card -->

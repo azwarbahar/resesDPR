@@ -1,7 +1,8 @@
 <?php
 require '../template/header/header.php';
-
-$laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='Approve'");
+$jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
+$dta_jadwal = mysqli_fetch_assoc($jadwal);
+$aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Approve' AND id_jadwal='$dta_jadwal[id_jadwal]'");
 
 ?>
 
@@ -33,6 +34,8 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='A
 
             <div class="card">
               <div class="card-header">
+              <h4 style="text-align: center;"><b>POKOK-POKOK PIKIRAN DPRD</b></h4>
+              <h4 style="text-align: center;"><b>SOPPENG TAHUN 2020 BERDASARKAN PRIORITAS</b></h4>
                 <!-- <a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Laporan</a> -->
               </div>
               <!-- /.card-header -->
@@ -44,20 +47,41 @@ $laporan = mysqli_query($conn, "SELECT * FROM tb_laporan WHERE status_laporan='A
                     <th>Kegiatan</th>
                     <th>SKPD</th>
                     <th>Lokasi</th>
-                    <th>Status</th>
+                    <th>Nama Dewan</th>
+                    <th>Fraksi</th>
+                    <th>Dapil</th>
                   </tr>
                   </thead>
                   <tbody>
                   <?php
-                   $i = 1; foreach($laporan as $dta) {
+                   $i = 1; foreach($aspirasi as $dta) {
                     ?>
                   <tr>
-                    <td style="text-align:center"><?= $i ?></td>
+                  <td style="text-align: center;"><?= $i ?></td>
                     <td><?= $dta['kegiatan'] ?></td>
                     <td><?= $dta['skpd'] ?></td>
                     <td><?= $dta['lokasi'] ?></td>
-                    <td style='text-align:center'><span class='badge bg-primary'><?= $dta['status_laporan'] ?></span></td>
-
+                    <?php
+                      $get_id_anggota1 = $dta['id_anggota'];
+                      $anggota = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota = $get_id_anggota1");
+                      while($row_anggota=mysqli_fetch_assoc($anggota)) {
+                        echo " <td>$row_anggota[nama_anggota]</td>";
+                        $get_id_fraksi = $row_anggota['id_fraksi'];
+                        $fraksi = mysqli_query($conn, "SELECT * FROM tb_fraksi WHERE id_fraksi = $get_id_fraksi");
+                        while($row_fraksi=mysqli_fetch_assoc($fraksi)) {
+                          $get_id_partai = $row_fraksi['id_partai'];
+                          $partai = mysqli_query($conn, "SELECT * FROM tb_partai WHERE id_partai = $get_id_partai");
+                          while($row_partai=mysqli_fetch_assoc($partai)) {
+                            echo " <td>$row_partai[nama_partai]</td>";
+                          }
+                        }
+                        $get_id_dapil = $row_anggota['id_dapil'];
+                        $dapil = mysqli_query($conn, "SELECT * FROM tb_dapil WHERE id_dapil = $get_id_dapil");
+                        while($row_dapil=mysqli_fetch_assoc($dapil)) {
+                          echo " <td style='text-align: center;'>$row_dapil[nama_dapil]</td>";
+                        }
+                      }
+                    ?>
                   </tr>
 
       <!-- Modal Hapus -->

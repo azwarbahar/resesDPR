@@ -62,6 +62,36 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    $('#jadwal_laporan').change(function(){
+      var value = $(this).val();
+      $.ajax({
+        url     : 'cont.php',
+        method  : "POST",
+        data    : { req: 'getLokasi', id: value },
+        success : function(data) {
+          console.log(data)
+          $('#lokasi_laporan').html(data)
+        }
+      });
+    })
+
+    // table laporan
+    $('#lokasi_laporan').change(function(){
+      var idjadwal = $('#jadwal_laporan').val();
+      var idlokasi = $('#lokasi_laporan').val();
+      var idanggota = $('#idanggota').val();
+      $.ajax({
+        url     : 'cont.php',
+        method  : "POST",
+        data    : { req: 'getdata', idjadwal: idjadwal, idlokasi: idlokasi, idanggota: idanggota },
+        success : function(data) {
+          console.log(data)
+          $('#tabeldata').html(data)
+        }
+      });
+    })
+
   });
 </script>
 
