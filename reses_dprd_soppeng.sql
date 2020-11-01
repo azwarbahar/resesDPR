@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Okt 2020 pada 16.52
+-- Waktu pembuatan: 01 Nov 2020 pada 17.32
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -66,7 +66,8 @@ INSERT INTO `tb_akun` (`id`, `id_akun`, `username`, `password`, `level_akun`, `s
 (1, '1', 'admin', '$2y$10$dw3996inoENCYr7ppG4V0eEtk9fB3WuSxPtUjEnz7gJm7F65rPa/i', 'admin', 'Aktif'),
 (2, '2', 'anggota', '$2y$10$2.3Faw84gMTWiRtsKLy7.OKpNxgkq2KjT6xxUeXFgAV6SLTf0DqF6', 'dpr', 'Aktif'),
 (3, '3', 'riswan', '$2y$10$bGbcG.k6Diq.U4Fhx63pSOF6OVPu.oCYc7kszsgqCnR8D2M0y6vLK', 'dpr', 'Aktif'),
-(10, '6', 'azwar', '$2y$10$95tqIWQL7IdJM3Ye1r0B4.l6jj9PCvV3YgXJGV6lL06VuBD48utze', 'admin', 'Aktif');
+(10, '6', 'azwar', '$2y$10$95tqIWQL7IdJM3Ye1r0B4.l6jj9PCvV3YgXJGV6lL06VuBD48utze', 'admin', 'Aktif'),
+(12, '5', 'testing', '$2y$10$b8l7d/m.7G21kVgU/h/0ZODU1jFszACSeA5qrQRfSfZdmLTiqWXGS', 'dpr', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,8 @@ CREATE TABLE `tb_anggota` (
 INSERT INTO `tb_anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `tempat_lahir_anggota`, `tanggal_lahir_anggota`, `agama_anggota`, `status_kawin`, `jabatan_anggota`, `id_partai`, `id_dapil`, `id_komisi`, `id_fraksi`, `foto_anggota`, `status_anggota`) VALUES
 (1, 'H. Syahruddin M. Adam, S.Sos, MM', 'Jl. Sawah', 'Soppeng', '4 Februari 1967', 'Islam', 'Kawin', 'Ketua DPRD Kabupaten Soppeng', '1', '1', '1', '1', 'image_anggota_1602847361.jpg', 'Aktif'),
 (2, 'A.Mapparemma M, SE, MM', 'Jl. Bila Utara No. 28 Watansoppeng', 'Soppeng', '7 Mei 1964', 'Islam', 'Kawin', 'Wakil', '2', '1', '2', '3', 'image_anggota_1602943306.jpg', 'Aktif'),
-(3, 'H.Riswan,S.Sos', 'Makassar', 'Soppeng', '15 Agustus 1966', 'Islam', 'Kawin', 'Wakil II DPRD Kabupaten Soppeng', '4', '2', '2', '2', 'image_anggota_1602946152.jpg', 'Aktif');
+(3, 'H.Riswan,S.Sos', 'Makassar', 'Soppeng', '15 Agustus 1966', 'Islam', 'Kawin', 'Wakil II DPRD Kabupaten Soppeng', '4', '2', '2', '2', 'image_anggota_1602946152.jpg', 'Aktif'),
+(5, 'Azwar', 'Makassar', 'Makassar', '15 Oktober 2007', 'Buddha', 'Belum Kawin', 'Presiden', '1', '1', '2', '2', 'image_anggota_1604233768.jpg', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -125,7 +127,8 @@ CREATE TABLE `tb_aspirasi` (
 INSERT INTO `tb_aspirasi` (`id_aspirasi`, `id_lokasi`, `id_anggota`, `id_jadwal`, `kegiatan`, `skpd`, `lokasi`, `status_aspirasi`, `keterangan_aspirasi`) VALUES
 (1, '3', '3', '3', 'Berenang', 'Anggotayya', 'Kolam', 'Kirim', ''),
 (3, '1', '3', '3', 'libur2', 'apa ini', 'tess edit lagi tes', 'Kirim', ''),
-(4, '1', '3', '3', 'Tes', 'lagi', 'tambah edit', 'Kirim', '');
+(4, '1', '3', '3', 'Tes', 'lagi', 'tambah edit', 'Approve', ''),
+(5, '4', '5', '3', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesett', 'Lorem Ipsum adalah contoh teks atau dummy dalam ', 'Approve', '');
 
 -- --------------------------------------------------------
 
@@ -143,8 +146,8 @@ CREATE TABLE `tb_dapil` (
 --
 
 INSERT INTO `tb_dapil` (`id_dapil`, `nama_dapil`) VALUES
-(1, 'Daerah Pilihan I'),
-(2, 'Daerah Pilihan II');
+(1, 'I'),
+(2, 'II');
 
 -- --------------------------------------------------------
 
@@ -251,7 +254,8 @@ CREATE TABLE `tb_lokasi_reses` (
 
 INSERT INTO `tb_lokasi_reses` (`id_lokasi`, `id_anggota`, `id_jadwal`, `nama_lokasi`, `tanggal_lokasi`) VALUES
 (1, '3', '3', 'Sudiang', '2020-10-22'),
-(3, '3', '3', 'Antang', '2020-10-31');
+(3, '3', '3', 'Antang', '2020-10-31'),
+(4, '5', '3', 'Alauddin', '2020-11-17');
 
 -- --------------------------------------------------------
 
@@ -358,19 +362,19 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT untuk tabel `tb_akun`
 --
 ALTER TABLE `tb_akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_aspirasi`
 --
 ALTER TABLE `tb_aspirasi`
-  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dapil`
@@ -406,7 +410,7 @@ ALTER TABLE `tb_komisi`
 -- AUTO_INCREMENT untuk tabel `tb_lokasi_reses`
 --
 ALTER TABLE `tb_lokasi_reses`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_partai`
