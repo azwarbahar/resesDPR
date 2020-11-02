@@ -54,13 +54,14 @@ $fraksi = mysqli_query($conn, "SELECT * FROM tb_fraksi");
                     $partai = mysqli_query($conn, "SELECT * FROM tb_partai WHERE id_partai = $dta[id_partai]");
                     while($row=mysqli_fetch_assoc($partai)) {
                       echo "<td style='text-align:center'><img src='../partai/gambar/$row[gambar_partai]' alt='' border=3 height=60 width=60></img></td>";
-                      echo " <td>$row[nama_partai]</td>";
+                      echo " <td>Fraksi $row[nama_partai]</td>";
                     }
                   ?>
                     <td><a href="#">9 anggota</a></td>
                     <td style="text-align:center">
-                        <a href="edit.php?id_fraksi=<?= $dta['id_fraksi'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                        <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_fraksi'] ?>" ><i class="fa fa-trash"></i></a>
+                        <a href="tambah-anggota-fraksi.php?id_fraksi=<?= $dta['id_fraksi'] ?>" class="btn btn-primary"><i class="fa fa-plus-square"></i></a>
+                        <a href="edit.php?id_fraksi=<?= $dta['id_fraksi'] ?>" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_fraksi'] ?>" ><i class="fa fa-trash"></i></a>
 
                     </td>
                   </tr>

@@ -114,8 +114,16 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi
                   </tbody>
 
                 </table>
+
               </div>
               <!-- /.card-body -->
+                <div class="col-12">
+                  <a href="laporan-print.php" target="_blank" class="btn btn-primary" style="margin-right: 5px;">
+                    <i class="fas fa-download"></i> Cetak Print/PDF
+                  </a>
+                </div>
+
+              <br>
             </div>
             <!-- /.card -->
           </div>
