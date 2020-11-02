@@ -1,5 +1,18 @@
 <?php
 require '../template/header/header.php';
+
+$id_anggota = $_GET['id_anggota'];
+$result = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota = '$id_anggota'");
+$dta = mysqli_fetch_assoc($result);
+
+$partai = mysqli_query($conn, "SELECT * FROM tb_partai WHERE id_partai = '$dta[id_partai]'");
+$dta_partai = mysqli_fetch_assoc($partai);
+
+$dapil = mysqli_query($conn, "SELECT * FROM tb_dapil WHERE id_dapil = '$dta[id_dapil]'");
+$dta_dapil = mysqli_fetch_assoc($dapil);
+
+$komisi = mysqli_query($conn, "SELECT * FROM tb_komisi WHERE id_komisi = '$dta[id_komisi]'");
+$dta_komisi = mysqli_fetch_assoc($komisi);
 ?>
 
 
@@ -10,6 +23,7 @@ require '../template/header/header.php';
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
+          <a href="data.php" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
           <h1 class="m-0 text-dark">Anggota DPR</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
@@ -44,37 +58,128 @@ require '../template/header/header.php';
               </div>
             </div>
             <div class="card-body">
-
+              <div class="row">
               <div class="col-md-4">
                 <!-- Profile Image -->
                 <div class="card card-primary card-outline">
                   <div class="card-body box-profile">
                     <div class="text-center">
-                      <img class="profile-user-img img-fluid" src="/reses-dprd/assets/dist/img/user4-128x128.jpg" alt="User profile picture">
+                      <img class="img-fluid" src="foto/<?= $dta['foto_anggota'] ?>" style="max-width: 280px; max-height: 350px; min-width: 280px; min-height: 350px;" alt="User profile picture">
                     </div>
+                    <br>
+                    <h5 class="text-center"><?= $dta['nama_anggota'] ?></h5>
+                    <p class="text-muted text-center"><?= $dta['jabatan_anggota'] ?></p>
+                    <ul class="list-group list-group-unbordered mb-3"></ul>
 
-                    <h3 class="profile-username text-center">Bang Jago</h3>
-
-                    <p class="text-muted text-center">Software Engineer</p>
-
-                    <ul class="list-group list-group-unbordered mb-3">
-                      <li class="list-group-item">
-                        <b>Followers</b> <a class="float-right">1,322</a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Following</b> <a class="float-right">543</a>
-                      </li>
-                      <li class="list-group-item">
-                        <b>Friends</b> <a class="float-right">13,287</a>
-                      </li>
-                    </ul>
-
-                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                    <a href="edit.php?id_anggota=<?= $dta['id_anggota'] ?>" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
                   </div>
                   <!-- /.card-body -->
                 </div>
+
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                  <div class="card-body box-profile">
+                  <h5 class="text-center">Partai</h5>
+                    <div class="text-center">
+                      <img src="/reses-dprd/admin/partai/gambar/<?= $dta_partai['gambar_partai'] ?>" style="max-width: 300px; max-height: 200px; min-width: 300px; min-height: 200px;" alt="User profile picture">
+                    </div>
+                    <br>
+                    <h5 class="text-center"><b><?= $dta_partai['nama_partai'] ?></b></h5>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+
                 <!-- /.card -->
               </div>
+
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#biodata" data-toggle="tab">Biodata</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile Anggota Dewan</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="biodata">
+
+                  <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item mb-3">
+                    <b>Nama Lengkap :</b> <a class="float-right"><?= $dta['nama_anggota'] ?></a>
+                  </li>
+                  <li class="list-group-item mb-3">
+                    <b>Alamat :</b> <a class="float-right"><?= $dta['alamat_anggota'] ?></a>
+                  </li>
+                  <li class="list-group-item mb-3">
+                    <b>Tempat Lahir :</b> <a class="float-right"><?= $dta['tempat_lahir_anggota'] ?></a>
+                  </li>
+                  <li class="list-group-item mb-3">
+                    <b>Tanggal Lahir :</b> <a class="float-right"><?= $dta['tanggal_lahir_anggota'] ?></a>
+                  </li>
+                  <li class="list-group-item mb-3">
+                    <b>Agama :</b> <a class="float-right"><?= $dta['agama_anggota'] ?></a>
+                  </li>
+                  <li class="list-group-item mb-3">
+                    <b>Status Kawin :</b> <a class="float-right"><?= $dta['status_kawin'] ?></a>
+                  </li>
+                </ul>
+
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="profile">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Jabatan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" disabled id="jabatan" value="<?= $dta['jabatan_anggota'] ?>">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Partai</label>
+                        <div class="col-sm-10">
+                          <input type="text" disabled class="form-control" id="partai" value="<?= $dta_partai['nama_partai'] ?>">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Dapil</label>
+                        <div class="col-sm-10">
+                          <input type="text" disabled class="form-control" id="dapil" value="Daerah Pilihan <?= $dta_dapil['nama_dapil'] ?>">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Komisi</label>
+                        <div class="col-sm-10">
+                        <input type="text" disabled class="form-control" id="komisi" value="<?= $dta_komisi['nama_komisi'].' ('.$dta_komisi['bidang_komisi'].')'?>">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Fraksi</label>
+                        <div class="col-sm-10">
+                          <?php
+
+                            $fraksi = mysqli_query($conn, "SELECT * FROM tb_fraksi WHERE id_fraksi = '$dta[id_fraksi]'");
+                            $dta_fraksi = mysqli_fetch_assoc($fraksi);
+                            $fraksi_partai = mysqli_query($conn, "SELECT * FROM tb_partai WHERE id_partai = '$dta_fraksi[id_partai]'");
+                            $dta_fraksi_partai = mysqli_fetch_assoc($fraksi_partai);
+
+                          ?>
+                          <input type="text" disabled class="form-control" id="fraksi" value="<?= $dta_fraksi_partai['nama_partai'] ?>">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+
+          </div>
 
 
             </div>

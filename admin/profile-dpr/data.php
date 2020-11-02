@@ -72,7 +72,7 @@ $anggota = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE status_anggota= '
                                         <div class="text-right">
                                             <a href="#" type="button" class="btn btn-sm bg-danger"  data-toggle="modal" data-target="#modal-danger<?= $dta['id_anggota'] ?>"><i class="fas fa-trash"></i></a>
                                             <a href="edit.php?id_anggota=<?= $dta['id_anggota'] ?>" class="btn btn-sm bg-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="detail.php" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
+                                            <a href="detail.php?id_anggota=<?= $dta['id_anggota'] ?>" class="btn btn-sm btn-primary"><i class="fas fa-user"></i> Lihat</a>
                                         </div>
                                     </div>
                                 </div>
