@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2020 pada 17.32
+-- Waktu pembuatan: 03 Nov 2020 pada 00.33
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -105,6 +105,29 @@ INSERT INTO `tb_anggota` (`id_anggota`, `nama_anggota`, `alamat_anggota`, `tempa
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_anggota_fraksi`
+--
+
+CREATE TABLE `tb_anggota_fraksi` (
+  `id_anggota_fraksi` int(11) NOT NULL,
+  `id_fraksi` varchar(255) NOT NULL,
+  `jabatan_fraksi` varchar(255) NOT NULL,
+  `nama_anggota` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_anggota_fraksi`
+--
+
+INSERT INTO `tb_anggota_fraksi` (`id_anggota_fraksi`, `id_fraksi`, `jabatan_fraksi`, `nama_anggota`) VALUES
+(1, '1', 'Pembina', 'H. Syahruddin M. Adam, S.Sos, MM'),
+(2, '2', 'Ketua', 'H.Riswan,S.Sos'),
+(4, '2', 'Sekretaris', 'Azwar'),
+(5, '3', 'Ketua', 'A.Mapparemma M, SE, MM');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_aspirasi`
 --
 
@@ -126,9 +149,11 @@ CREATE TABLE `tb_aspirasi` (
 
 INSERT INTO `tb_aspirasi` (`id_aspirasi`, `id_lokasi`, `id_anggota`, `id_jadwal`, `kegiatan`, `skpd`, `lokasi`, `status_aspirasi`, `keterangan_aspirasi`) VALUES
 (1, '3', '3', '3', 'Berenang', 'Anggotayya', 'Kolam', 'Kirim', ''),
-(3, '1', '3', '3', 'libur2', 'apa ini', 'tess edit lagi tes', 'Kirim', ''),
+(3, '1', '3', '3', 'libur2', 'apa ini', 'tess edit lagi tes', 'Approve', ''),
 (4, '1', '3', '3', 'Tes', 'lagi', 'tambah edit', 'Approve', ''),
-(5, '4', '5', '3', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesett', 'Lorem Ipsum adalah contoh teks atau dummy dalam ', 'Approve', '');
+(5, '4', '5', '3', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesett', 'Lorem Ipsum adalah contoh teks atau dummy dalam ', 'Approve', ''),
+(6, '3', '3', '3', 'Mangkal', 'Banyal', 'aaa gut', 'Approve', ''),
+(7, '1', '3', '3', 'Main Game', 'testing', 'lokasi test', 'Simpan', '');
 
 -- --------------------------------------------------------
 
@@ -147,7 +172,8 @@ CREATE TABLE `tb_dapil` (
 
 INSERT INTO `tb_dapil` (`id_dapil`, `nama_dapil`) VALUES
 (1, 'I'),
-(2, 'II');
+(2, 'II'),
+(3, 'III');
 
 -- --------------------------------------------------------
 
@@ -170,6 +196,30 @@ INSERT INTO `tb_dapil_wilayah` (`id_dapil_wilayah`, `id_dapil`, `nama_wilayah`) 
 (2, '2', 'Kecamatan Lilirilau'),
 (3, '2', 'Kecamatan Liliriaja'),
 (4, '2', 'Kecamatan Citta');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_dokumentasi`
+--
+
+CREATE TABLE `tb_dokumentasi` (
+  `id_dokumentasi` int(11) NOT NULL,
+  `id_lokasi` varchar(255) NOT NULL,
+  `id_anggota` varchar(255) NOT NULL,
+  `id_jadwal` varchar(255) NOT NULL,
+  `nama_dokumentasi` varchar(255) NOT NULL,
+  `keterangan_dokumentasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_dokumentasi`
+--
+
+INSERT INTO `tb_dokumentasi` (`id_dokumentasi`, `id_lokasi`, `id_anggota`, `id_jadwal`, `nama_dokumentasi`, `keterangan_dokumentasi`) VALUES
+(1, '1', '3', '3', 'image_1604317933.jpg', 'Buat Bumbu'),
+(2, '1', '3', '3', 'image_1604317975.jpg', 'Beli daging'),
+(3, '3', '3', '3', 'image_1604319202.png', 'Testing App');
 
 -- --------------------------------------------------------
 
@@ -212,7 +262,7 @@ CREATE TABLE `tb_jadwal` (
 INSERT INTO `tb_jadwal` (`id_jadwal`, `nama_jadwal`, `mulai_jadwal`, `akhir_jadwal`, `status_jadwal`) VALUES
 (1, 'Semester I', '2020-01-12', '2020-04-12', 'Selesai'),
 (2, 'Semester II', '2020-05-12', '2020-08-12', 'Selesai'),
-(3, 'Semester III', '2020-09-12', '2020-12-12', 'Berjalan');
+(3, 'Semester III', '2020-09-12', '2020-11-04', 'Berjalan');
 
 -- --------------------------------------------------------
 
@@ -301,6 +351,12 @@ ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
+-- Indeks untuk tabel `tb_anggota_fraksi`
+--
+ALTER TABLE `tb_anggota_fraksi`
+  ADD PRIMARY KEY (`id_anggota_fraksi`);
+
+--
 -- Indeks untuk tabel `tb_aspirasi`
 --
 ALTER TABLE `tb_aspirasi`
@@ -317,6 +373,12 @@ ALTER TABLE `tb_dapil`
 --
 ALTER TABLE `tb_dapil_wilayah`
   ADD PRIMARY KEY (`id_dapil_wilayah`);
+
+--
+-- Indeks untuk tabel `tb_dokumentasi`
+--
+ALTER TABLE `tb_dokumentasi`
+  ADD PRIMARY KEY (`id_dokumentasi`);
 
 --
 -- Indeks untuk tabel `tb_fraksi`
@@ -371,22 +433,34 @@ ALTER TABLE `tb_anggota`
   MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_anggota_fraksi`
+--
+ALTER TABLE `tb_anggota_fraksi`
+  MODIFY `id_anggota_fraksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_aspirasi`
 --
 ALTER TABLE `tb_aspirasi`
-  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dapil`
 --
 ALTER TABLE `tb_dapil`
-  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_dapil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dapil_wilayah`
 --
 ALTER TABLE `tb_dapil_wilayah`
   MODIFY `id_dapil_wilayah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_dokumentasi`
+--
+ALTER TABLE `tb_dokumentasi`
+  MODIFY `id_dokumentasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_fraksi`
