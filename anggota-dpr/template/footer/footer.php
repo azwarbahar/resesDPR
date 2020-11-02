@@ -15,6 +15,9 @@
 </div>
 <!-- ./wrapper -->
 
+
+<!-- bs-custom-file-input -->
+<script src="/reses-dprd/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- jQuery -->
 <script src="/reses-dprd/assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -31,6 +34,8 @@
 <script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../assetsplugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
+<!-- Ekko Lightbox -->
+<script src="/reses-dprd/assets/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="/reses-dprd/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
@@ -49,6 +54,14 @@
 <!-- page script -->
 <script>
   $(function () {
+
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
@@ -93,6 +106,26 @@
     })
 
   });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+  });
+
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
 </script>
 
 </body>

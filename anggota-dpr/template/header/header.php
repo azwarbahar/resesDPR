@@ -52,6 +52,8 @@ $foto = $get_data_anggota['foto_anggota'];
   <title>Admin Reses DPRD</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="/reses-dprd/assets/plugins/ekko-lightbox/ekko-lightbox.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/reses-dprd/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->

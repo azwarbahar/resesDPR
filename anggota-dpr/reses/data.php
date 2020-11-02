@@ -105,7 +105,7 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
                     <td style="text-align:center"><?= $i ?></td>
                     <td><?= $dta['nama_lokasi'] ?></td>
                     <td><?= $dta['tanggal_lokasi'] ?></td>
-                    <td style="text-align:center"><a href="#"><i>Dokumentasi..</i></a></td>
+                    <td style="text-align:center"><a href="../dokumentasi/data.php?id_lokasi=<?= $dta['id_lokasi'].'&id_jadwal='.$jadwal_laporan ?>"><i>Dokumentasi..</i></a></td>
                     <td style="text-align:center"><a href="data-aspirasi.php?id_lokasi=<?= $dta['id_lokasi'].'&id_jadwal='.$jadwal_laporan ?>"><i>Lihat Aspirasi</i></a></td>
                       <td style="text-align:center">
                         <!-- <button type="submit" name="update_status_laporan" class="btn btn-primary"><i class="fa fa-check"></i></button> -->

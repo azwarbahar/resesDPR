@@ -16,7 +16,8 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Lokasi : <?= $dta_lokasi['nama_lokasi'] ?></h1>
+              <a href="/reses-dprd/anggota-dpr/reses/data.php" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
+              <h1 class="m-0 text-dark">Lokasi : <?= $dta_lokasi['nama_lokasi'] ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

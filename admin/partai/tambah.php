@@ -47,14 +47,14 @@ require_once '../template/header/header.php';
               </div>
 
               <div class="form-group">
-                    <label for="customFile">Logo Partai</label>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="gambar_partai" name="gambar_partai" onchange="readURL(this);" >
-                      <label class="custom-file-label" for="gambar_partai">Choose file</label>
-                    </div>
-                  </div>
-                  <br>
-                  <img style="max-width:180px; max-height:180px;" id="blah" src="/reses-dprd/assets/dist/img/default-150x150.png" alt="your image" />
+                <label for="customFile">Logo Partai</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="gambar_partai" name="gambar_partai" onchange="readURL(this);" >
+                  <label class="custom-file-label" for="gambar_partai">Choose file</label>
+                </div>
+              </div>
+              <br>
+              <img style="max-width:180px; max-height:180px;" id="blah" src="/reses-dprd/assets/dist/img/default-150x150.png" alt="your image" />
 
               <div class="col-12">
               <button type="submit" name="submit_partai" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
