@@ -31,6 +31,59 @@ if (isset($_POST['submit_fraksi'])) {
 }
 
 
+// SUBMIT ANGGOTA FRAKSI
+if (isset($_POST['submit_anggota_fraksi'])) {
+	$id_fraksi = $_POST['id_fraksi'];
+	$jabatan_fraksi = $_POST['jabatan_fraksi'];
+	$nama_anggota = $_POST['nama_anggota'];
+    // TAMBAH DATA
+	$query= "INSERT INTO tb_anggota_fraksi VALUES (NULL, '$id_fraksi',
+														 '$jabatan_fraksi',
+														 '$nama_anggota')";
+	mysqli_query($conn, $query);
+	if (mysqli_affected_rows($conn) > 0) {
+		plugins(); ?>
+		<script>
+			$(document).ready(function() {
+				swal({
+					title: 'Berhasil',
+					text: 'Anggota Fraksi Berhasil ditambah!',
+					icon: 'success'
+				}).then((data) => {
+					location.href = 'data.php';
+				});
+			});
+		</script>
+	<?php }
+}
+
+// UPDATE ANGGOTA FRAKSI
+if (isset($_POST['update_anggota_fraksi'])) {
+    $id_fraksi = $_POST['id_fraksi'];
+	$id_anggota_fraksi = $_POST['id_anggota_fraksi'];
+	$jabatan_fraksi = $_POST['jabatan_fraksi'];
+	$nama_anggota = $_POST['nama_anggota'];
+	
+		$query = "UPDATE tb_anggota_fraksi SET jabatan_fraksi = '$jabatan_fraksi', nama_anggota = '$nama_anggota' WHERE id_anggota_fraksi = '$id_anggota_fraksi'";
+
+	// EDIT FRAKSI
+	mysqli_query($conn, $query);
+	if (mysqli_affected_rows($conn) > 0) {
+		plugins(); ?>
+		<script>
+			$(document).ready(function() {
+				swal({
+					title: 'Berhasil',
+					text: 'Anggota Fraksi berhasil diubah',
+					icon: 'success'
+				}).then((data) => {
+					location.href = 'edit.php?id_fraksi=<?= $id_fraksi ?>';
+				});
+			});
+		</script>
+	<?php }
+}
+
 // UPDATE FRAKSI
 if (isset($_POST['update_fraksi'])) {
     $id_fraksi = $_POST['id_fraksi'];
@@ -49,6 +102,30 @@ if (isset($_POST['update_fraksi'])) {
 					icon: 'success'
 				}).then((data) => {
 					location.href = 'data.php';
+				});
+			});
+		</script>
+	<?php }
+}
+
+
+// HAPUS FRAKSI
+if (isset($_GET['hapus_anggota_fraksi'])) {
+	$id_anggota_fraksi = $_GET['id_anggota_fraksi'];
+	$id_fraksi = $_GET['id_fraksi'];
+
+	$query = "DELETE FROM tb_anggota_fraksi WHERE id_anggota_fraksi = '$id_anggota_fraksi'";
+	mysqli_query($conn, $query);
+	if (mysqli_affected_rows($conn) > 0) {
+		plugins(); ?>
+		<script>
+			$(document).ready(function() {
+				swal({
+					title: 'Berhasil Dihapus',
+					text: 'Anggota Fraksi berhasil dihapus',
+					icon: 'success'
+				}).then((data) => {
+					location.href = 'edit.php?id_fraksi=<?= $id_fraksi ?>';
 				});
 			});
 		</script>
