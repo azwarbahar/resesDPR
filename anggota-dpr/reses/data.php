@@ -37,6 +37,17 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <?php
+          if($ada_jadwal=='Kosong'){
+            echo "  <div class='alert alert-info alert-dismissible'>
+                      <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                      <h5><i class='icon fas fa-info'></i> Info!</h5>
+                        Penginputan Laporan Belum Di Tersedia.. <a href='../jadwal-reses/data.php'>Lihat<a/>
+                    </div>";
+
+          }
+        ?>
+
         <div class="row">
           <div class="col-12">
 

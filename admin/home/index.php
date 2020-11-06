@@ -29,20 +29,34 @@ require '../template/header/header.php';
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
+                <div class="alert alert-info alert-dismissible">
+                  <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
+                  <h5><i class="icon fas fa-info"></i> Welcome Back!</h5>
+                  Selamat Datang <b><?= $nama ?></b>
+                  <br> <br>
+                </div>
+
         <!-- Small boxes (Stat box) -->
+        <br>
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              <?php
+                  $anggota = mysqli_query($conn, "SELECT * FROM tb_anggota");
+                  $row_anggota = mysqli_num_rows($anggota);
+                  $row_anggota_final = $row_anggota;
+                  echo "<h3>$row_anggota_final</h3>";
+                ?>
 
                 <p>Anggota DPR</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../profile-dpr/data.php" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -50,14 +64,21 @@ require '../template/header/header.php';
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <?php
+                  $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
+                  $dta = mysqli_fetch_assoc($jadwal);
+                  $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE  id_jadwal = '$dta[id_jadwal]' AND ( status_aspirasi='Kirim' OR status_aspirasi='Approve' ) ");
+                  $row_aspirasi = mysqli_num_rows($aspirasi);
+                  $row_aspirasi_final = $row_aspirasi;
+                  echo "<h3>$row_aspirasi_final</h3>";
+                ?>
 
                 <p>Laporan Masuk</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fas fa-file"></i>
               </div>
-              <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../laporan-masuk/data.php" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -65,14 +86,19 @@ require '../template/header/header.php';
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <?php
+                  $admin = mysqli_query($conn, "SELECT * FROM tb_admin");
+                  $row_admin = mysqli_num_rows($admin);
+                  $row_admin_final = $row_admin;
+                  echo "<h3>$row_admin_final</h3>";
+                ?>
 
                 <p>Admin</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person"></i>
               </div>
-              <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../user/data.php" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -80,44 +106,24 @@ require '../template/header/header.php';
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <?php
+                  $partai = mysqli_query($conn, "SELECT * FROM tb_partai");
+                  $row_partai = mysqli_num_rows($partai);
+                  $row_partai_final = $row_partai;
+                  echo "<h3>$row_partai_final</h3>";
+                ?>
 
-                <p>Unique Visitors</p>
+                <p>Partai</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-flag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../partai/data.php" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
         </div>
         <!-- /.row (main row) -->
-
-        <br>
-        <div class="row">
-          <div class="col-md-6">
-
-            <!-- DONUT CHART -->
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Donut Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-          </div>
-        </div>
 
       </div><!-- /.container-fluid -->
     </section>

@@ -105,22 +105,47 @@ $foto = $get_data_anggota['foto_anggota'];
         <ul class="navbar-nav ml-auto">
 
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Pemberitahuan</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 Laporan Terbaru
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Lihat Semua</a>
-        </div>
-      </li>
+      <?php
+
+        $aspirasi_header = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Tolak' AND id_anggota= '$get_id_akun_anggota'");
+        $row_aspirasi_header = mysqli_num_rows($aspirasi_header);
+        $row_aspirasi_header_final = $row_aspirasi_header;
+        if($row_aspirasi_header_final > 0){
+          echo "  <li class='nav-item dropdown'>
+                    <a class='nav-link' data-toggle='dropdown' href='#'>
+                      <i class='far fa-bell'></i>
+                      <span class='badge badge-warning navbar-badge'>$row_aspirasi_header_final</span>
+                    </a>
+                    <div class='dropdown-menu dropdown-menu-lg dropdown-menu-right'>
+                      <span class='dropdown-item dropdown-header'>$row_aspirasi_header_final Pemberitahuan</span>
+                      <div class='dropdown-divider'></div>
+                      <a href='/reses-dprd/anggota-dpr/reses-tolak/data.php' class='dropdown-item'>
+                        <i class='fas fa-envelope mr-2'></i> $row_aspirasi_header_final Laporan ditolak
+                      </a>
+                      <div class='dropdown-divider'></div>
+                      <a href='/reses-dprd/anggota-dpr/reses-tolak/data.php' class='dropdown-item dropdown-footer'>Lihat Semua</a>
+                    </div>
+                  </li>";
+        } else{
+          echo "  <li class='nav-item dropdown'>
+                    <a class='nav-link' data-toggle='dropdown' href='#'>
+                      <i class='far fa-bell'></i>
+                    </a>
+                    <div class='dropdown-menu dropdown-menu-lg dropdown-menu-right'>
+                      <span class='dropdown-item dropdown-header'>0 Pemberitahuan</span>
+                      <div class='dropdown-divider'></div>
+                      <a href='#' class='dropdown-item'>
+                        <i class='fas fa-envelope mr-2'></i> Tidak Ada
+                      </a>
+                      <div class='dropdown-divider'></div>
+                      <a href='#' class='dropdown-item dropdown-footer'>Lihat Semua</a>
+                    </div>
+                  </li>";
+
+        }
+
+      ?>
+
 
     </ul>
   </nav>

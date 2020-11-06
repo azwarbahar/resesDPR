@@ -171,7 +171,7 @@ if (isset($_GET['kirim_reses'])){
 
 	$id_anggota = $_GET['id_anggota'];
 	$id_jadwal = $_GET['id_jadwal'];
-		$query = "UPDATE tb_aspirasi SET  status_aspirasi = 'Kirim' WHERE id_anggota = '$id_anggota' AND id_jadwal = '$id_jadwal' ";
+		$query = "UPDATE tb_aspirasi SET  status_aspirasi = 'Kirim' WHERE status_aspirasi = 'Simpan' AND id_anggota = '$id_anggota' AND id_jadwal = '$id_jadwal' ";
 
 	// EDIT LAPORAN STATUS
 	mysqli_query($conn, $query);

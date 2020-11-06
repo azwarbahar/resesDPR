@@ -50,6 +50,7 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
                     <th>Kegiatan</th>
                     <th>SKPD</th>
                     <th>Lokasi</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -62,6 +63,7 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
                     <td><?= $dta['kegiatan'] ?></td>
                     <td><?= $dta['skpd'] ?></td>
                     <td><?= $dta['lokasi'] ?></td>
+                    <td><?= $dta['status_aspirasi'] ?></td>
                       <td style="text-align:center">
                       <form method="POST" action="controller.php" enctype="multipart/form-data">
                       <input type="text" hidden name="id_jadwal" id="id_jadwal" value="<?= $id_jadwal ?>">
