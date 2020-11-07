@@ -154,7 +154,7 @@ $foto = $get_data_anggota['foto_anggota'];
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/reses-dprd/admin/index.php" class="brand-link">
+    <a href="/reses-dprd/anggota-dpr/index.php" class="brand-link">
       <img src="/reses-dprd/assets/dist/img/soppeng.png" alt="Logo Kabupaten Soppeng" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">RESES DPRD</span>

@@ -38,6 +38,8 @@
 <script src="/reses-dprd/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- ChartJS -->
 <script src="/reses-dprd/assets/plugins/chart.js/Chart.min.js"></script>
+<!-- Ekko Lightbox -->
+<script src="/reses-dprd/assets/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="/reses-dprd/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap Switch -->
@@ -70,6 +72,14 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+    });
+
+    
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
     });
 
     //-------------

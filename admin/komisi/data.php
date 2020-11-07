@@ -52,7 +52,12 @@ $komisi = mysqli_query($conn, "SELECT * FROM tb_komisi");
                     <td style="text-align:center"><?= $i ?></td>
                     <td><?= $dta['nama_komisi'] ?></td>
                     <td><?= $dta['bidang_komisi'] ?></td>
-                    <td><a href="#">9 anggota</a></td>
+                    <?php
+                      $anggotajumalh = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_komisi='$dta[id_komisi]'");
+                      $row_anggotajumalh = mysqli_num_rows($anggotajumalh);
+                      $rowfinal = $row_anggotajumalh;
+                      echo "<td style='text-align:center'>$rowfinal Anggota </td>";
+                    ?>
                       <td style="text-align:center">
                         <a href="edit.php?id_komisi=<?= $dta['id_komisi'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_komisi'] ?>" ><i class="fa fa-trash"></i></a>

@@ -8,7 +8,7 @@ function plugins() { ?>
 <?php }
 require('../../koneksi.php');
 
-// SUBMIT ASPIRASI
+// SUBMIT DOKUMENTASI
 if (isset($_POST['submit_dokumentasi'])) {
 	$id_lokasi = $_POST['id_lokasi'];
 	$id_anggota = $_POST['id_anggota'];

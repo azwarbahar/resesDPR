@@ -52,7 +52,13 @@ $partai = mysqli_query($conn, "SELECT * FROM tb_partai");
                     <td style="text-align:center"><?= $i ?></td>
                     <td style="text-align:center"><img src="gambar/<?php echo $dta['gambar_partai'] ?>" alt="" border=3 height=60 width=60></img></td>
                     <td><?= $dta['nama_partai'] ?></td>
-                    <td><a href="#">9 anggota</a></td>
+                    <!-- <td><a href="#">9 anggota</a></td> -->
+                    <?php
+                      $anggotajumalh = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_partai='$dta[id_partai]'");
+                      $row_anggotajumalh = mysqli_num_rows($anggotajumalh);
+                      $rowfinal = $row_anggotajumalh;
+                      echo "<td style='text-align:center'>$rowfinal Anggota </td>";
+                    ?>
                     <td style="text-align:center">
                         <a href="edit.php?id_partai=<?= $dta['id_partai'] ?>" type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                         <a href="#" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger<?= $dta['id_partai'] ?>"><i class="fa fa-trash"></i></a>

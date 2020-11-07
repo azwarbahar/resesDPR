@@ -62,6 +62,7 @@ $group_anggota = mysqli_query($conn, "SELECT id_anggota FROM tb_aspirasi GROUP B
                     <td><?= $dta_jadwal['nama_jadwal'] ?></td>
                     <td class="text-center py-0 align-middle">
                     <a href="../aspirasi-anggota/data.php?id_anggota=<?= $dta['id_anggota'] ?>" type="button" class="btn btn-success"><i class="fa fa-eye"></i>  Lihat Laporan</a>
+                    <a href="dokumentasi-data.php?id_anggota=<?= $dta['id_anggota'] ?>" type="button" class="btn btn-info"><i class="fa fa-file-image"></i>  Dokumentasi</a>
                     </td>
                   </tr>
 

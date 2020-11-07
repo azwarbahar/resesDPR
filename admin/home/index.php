@@ -67,7 +67,7 @@ require '../template/header/header.php';
               <?php
                   $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
                   $dta = mysqli_fetch_assoc($jadwal);
-                  $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE  id_jadwal = '$dta[id_jadwal]' AND ( status_aspirasi='Kirim' OR status_aspirasi='Approve' ) ");
+                  $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE  id_jadwal = '$dta[id_jadwal]' AND status_aspirasi='Kirim' ");
                   $row_aspirasi = mysqli_num_rows($aspirasi);
                   $row_aspirasi_final = $row_aspirasi;
                   echo "<h3>$row_aspirasi_final</h3>";

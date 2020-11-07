@@ -32,7 +32,7 @@ require '../template/header/header.php';
         
       <div class="callout callout-danger">
           <h5><i class="fas fa-info"></i> Welcome:</h5>
-          Selamat Datang <b>  <?= $get_data_anggota['nama_anggota'] ?> </b>
+          Selamat Datang <a href="../profile-dpr/data.php"><b>  <?= $get_data_anggota['nama_anggota'] ?> </b></a> 
         </div>
 
         <?php
@@ -44,7 +44,7 @@ require '../template/header/header.php';
         } else {
           echo "<div class='callout callout-success'>
                   <h5><i class='fas fa-info'></i> Info:</h5>
-                    Jadwal Inputan Laporan Reses Yang Sedang Berlangsung <a href=''> <b> $dta_jadwal[nama_jadwal] </b></a>
+                    Jadwal Inputan Laporan Reses Yang Sedang Berlangsung <a href='../jadwal-reses/data.php'> <b> $dta_jadwal[nama_jadwal] </b></a>
                 </div>";
         }
         ?>
@@ -120,9 +120,9 @@ require '../template/header/header.php';
                 <p>Laporan Tolak</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-window-close"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../reses-tolak/data.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
