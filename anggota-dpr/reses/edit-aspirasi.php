@@ -73,7 +73,7 @@ $id_jadwal = $_GET['id_jadwal'];
                 <input type="text" hidden id="id_aspirasi" name="id_aspirasi" value="<?= $dta_aspirasi['id_aspirasi'] ?>" class="form-control">
                 <input type="text" hidden id="id_lokasi" name="id_lokasi" value="<?= $id_lokasi ?>" class="form-control">
                 <input type="text" hidden id="id_anggota" name="id_anggota" value="<?= $get_id_akun_anggota ?>" class="form-control">
-              <button type="submit" name="update_aspirasi" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
+              <button type="submit" name="update_aspirasi" id="update_aspirasi" disabled="" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
               <a href="/reses-dprd/anggota-dpr/reses/data-aspirasi.php?id_lokasi=<?= $id_lokasi.'&id_jadwal='.$id_jadwal ?>" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
@@ -91,6 +91,23 @@ $id_jadwal = $_GET['id_jadwal'];
     <!-- /.content -->
     </div>
   <!-- /.content-wrapper -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	$('form')
+		.each(function(){
+			$(this).data('serialized', $(this).serialize())
+		})
+        .on('change input', function(){
+            $(this)
+                .find('input:submit, button:submit')
+                    .attr('disabled', $(this).serialize() == $(this).data('serialized'))
+            ;
+         })
+		.find('input:submit, button:submit')
+			.attr('disabled', true)
+	;
+</script>
 
 
 <?php

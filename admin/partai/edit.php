@@ -65,7 +65,7 @@ $dta = mysqli_fetch_assoc($result);
               <div class="col-12">
               <input type="hidden" name="id_partai" value="<?= $dta['id_partai'] ?>">
               <input type="hidden" name="foto_now" value="<?= $dta['gambar_partai'] ?>">
-              <button type="submit" name="edit_partai" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
+              <button type="submit" name="edit_partai" id="edit_partai" disabled="" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
               <a href="/reses-dprd/admin/partai/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
@@ -75,15 +75,28 @@ $dta = mysqli_fetch_assoc($result);
             <br>
           </div>
           <!-- /.card -->
-
-
         </div>
       </div>
     </section>
     <!-- /.content -->
     </div>
   <!-- /.content-wrapper -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	$('form')
+		.each(function(){
+			$(this).data('serialized', $(this).serialize())
+		})
+        .on('change input', function(){
+            $(this)
+                .find('input:submit, button:submit')
+                    .attr('disabled', $(this).serialize() == $(this).data('serialized'))
+            ;
+         })
+		.find('input:submit, button:submit')
+			.attr('disabled', true)
+	;
+</script>
 
 <?php
 require '../template/footer/footer.php';

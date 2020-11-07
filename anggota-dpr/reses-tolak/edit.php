@@ -67,7 +67,7 @@ $dta_aspirasi = mysqli_fetch_assoc($aspirasi);
 
               <div class="col-12">
                 <input type="text" hidden id="id_aspirasi" name="id_aspirasi" value="<?= $dta_aspirasi['id_aspirasi'] ?>" class="form-control">
-              <button type="submit" name="update_aspirasi" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan dan Kirim</button>
+              <button type="submit" name="update_aspirasi" id="update_aspirasi" disabled="" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan dan Kirim</button>
               <a href="/reses-dprd/anggota-dpr/reses-tolak/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
@@ -85,6 +85,23 @@ $dta_aspirasi = mysqli_fetch_assoc($aspirasi);
     <!-- /.content -->
     </div>
   <!-- /.content-wrapper -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	$('form')
+		.each(function(){
+			$(this).data('serialized', $(this).serialize())
+		})
+        .on('change input', function(){
+            $(this)
+                .find('input:submit, button:submit')
+                    .attr('disabled', $(this).serialize() == $(this).data('serialized'))
+            ;
+         })
+		.find('input:submit, button:submit')
+			.attr('disabled', true)
+	;
+</script>
 
 
 <?php

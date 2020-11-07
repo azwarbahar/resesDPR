@@ -64,7 +64,7 @@ $dta = mysqli_fetch_assoc($result1);
                 </div>
                 <div class="col-12">
                   <input type="hidden" name="id_fraksi" value="<?= $dta['id_fraksi'] ?>">
-                  <button type="submit" name="update_fraksi" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
+                  <button type="submit" name="update_fraksi" id="update_fraksi" disabled="" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
                   <a href="/reses-dprd/admin/fraksi/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
                 </div>
               </div>
@@ -167,7 +167,7 @@ $dta = mysqli_fetch_assoc($result1);
               <input type="hidden" name="id_fraksi" id="id_fraksi" value="<?= $dta['id_fraksi'] ?>">
               <input type="hidden" name="id_anggota_fraksi" id="id_anggota_fraksi" value="<?= $dta_fraksi['id_anggota_fraksi'] ?>">
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-              <button type="submit" name="update_anggota_fraksi" class="btn btn-primary">Simpan</button>
+              <button type="submit" name="update_anggota_fraksi" id="update_anggota_fraksi" class="btn btn-primary">Simpan</button>
             </div>
           </div>
           </form>
@@ -218,6 +218,23 @@ $dta = mysqli_fetch_assoc($result1);
     <!-- /.content -->
     </div>
   <!-- /.content-wrapper -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	$('form')
+		.each(function(){
+			$(this).data('serialized', $(this).serialize())
+		})
+        .on('change input', function(){
+            $(this)
+                .find('input:submit, button:submit')
+                    .attr('disabled', $(this).serialize() == $(this).data('serialized'))
+            ;
+         })
+		.find('input:submit, button:submit')
+			.attr('disabled', true)
+	;
+</script>
 
 
 <?php

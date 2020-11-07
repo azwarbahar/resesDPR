@@ -77,7 +77,7 @@ $dta = mysqli_fetch_assoc($result);
               <div class="col-12">
               <input type="hidden" name="id_admin" value="<?= $dta['id_admin'] ?>">
               <input type="hidden" name="foto_now" value="<?= $dta['foto_admin'] ?>">
-              <button type="submit" name="edit_admin" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
+              <button type="submit" name="edit_admin" id="edit_admin" disabled="" class="btn btn-success float-right" style="margin-top: 3% ; margin-left: 2%;">Simpan</button>
               <a href="/reses-dprd/admin/user/data.php" class="btn btn-secondary float-right" style="margin-top: 3% ;">Batal</a>
             </div>
             </form>
@@ -95,6 +95,22 @@ $dta = mysqli_fetch_assoc($result);
     <!-- /.content -->
     </div>
   <!-- /.content-wrapper -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	$('form')
+		.each(function(){
+			$(this).data('serialized', $(this).serialize())
+		})
+        .on('change input', function(){
+            $(this)
+                .find('input:submit, button:submit')
+                    .attr('disabled', $(this).serialize() == $(this).data('serialized'))
+            ;
+         })
+		.find('input:submit, button:submit')
+			.attr('disabled', true)
+	;
+</script>
 
 
 <?php
