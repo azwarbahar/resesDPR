@@ -65,7 +65,6 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
                   echo '<button type="button"  data-toggle="modal" data-target="#modal-primary" class="float-right btn btn-success"><img src="/reses-dprd/assets/dist/img/send.png" style="max-width: 22px; max-height: 22px;" class="fa fa-send-secure">&nbsp Kirim Reses</button>';
                 } else{
                   echo '<button type="button" class="float-right btn btn-success disabled"><img src="/reses-dprd/assets/dist/img/send.png" style="max-width: 22px; max-height: 22px;" class="fa fa-send-secure">&nbsp Kirim Reses</button>';
-                  // echo '<p class="float-right"> tes </p>';
                 }
               } else {
                 echo '<a href="tambah.php" type="button" class="btn btn-primary disabled"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
