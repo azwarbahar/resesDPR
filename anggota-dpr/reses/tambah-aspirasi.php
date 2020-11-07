@@ -53,9 +53,31 @@ $dta_lokasi = mysqli_fetch_assoc($lokasi);
                 <textarea class="form-control"  name="kegiatan" id="kegiatan" rows="3" placeholder="Kegiatan ..."></textarea>
               </div>
 
+              <!-- Status Kawin -->
               <div class="form-group">
-                <label>SKPD</label>
-                <textarea class="form-control" name="skpd" id="skpd" rows="3" placeholder="SKPD ..."></textarea>
+                <label for="inputName">SKPD</label>
+                <select class="form-control select2" style="width: 100%;" name="skpd" id="skpd">
+                    <option selected="selected" value="-" > -- Pilih --</option>
+                    <option value="Dinas Pendidikan dan Kebudayaan" >Dinas Pendidikan dan Kebudayaan</option>
+                    <option value="Dinas Komunikasi dan Informatika"  >Dinas Komunikasi dan Informatika</option>
+                    <option value="Dinas Kependudukan dan Pencatatan Sipil"  >Dinas Kependudukan dan Pencatatan Sipil</option>
+                    <option value="Dinas Penanaman Modal, Pelayanan Terpadu Satu Pintu, Tenaga Kerja dan Transmigrasi"  >Dinas Penanaman Modal, Pelayanan Terpadu Satu Pintu, Tenaga Kerja dan Transmigrasi</option>
+                    <option value="Dinas Pariwisata, Kepemudaan dan Olahraga"  >Dinas Pariwisata, Kepemudaan dan Olahraga</option>
+                    <option value="Dinas Pekerjaan Umum dan Penataan Ruang"  >Dinas Pekerjaan Umum dan Penataan Ruang</option>
+                    <option value="Dinas Perumahan dan Kawasan Permukiman"  >Dinas Perumahan dan Kawasan Permukiman</option>
+                    <option value="Dinas Perdagangan, Perindustrian, Koperasi dan UKM"  >Dinas Perdagangan, Perindustrian, Koperasi dan UKM</option>
+                    <option value="Dinas Kesehatan"  >Dinas Kesehatan</option>
+                    <option value="Dinas Sosial"  >Dinas Sosial</option>
+                    <option value="Dinas Perhubungan"  >Dinas Perhubungan</option>
+                    <option value="Dinas Tanaman Pangan, Hortikultura, Perkebunan, dan Ketahanan Pangan"  >Dinas Tanaman Pangan, Hortikultura, Perkebunan, dan Ketahanan Pangan</option>
+                    <option value="Dinas Pemberdayaan Masyarakat Desa"  >Dinas Pemberdayaan Masyarakat Desa</option>
+                    <option value="Dinas Pemberdayaan Perempuan, Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana"  >Dinas Pemberdayaan Perempuan, Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana</option>
+                    <option value="Dinas Peternakan, Kesehatan Hewan dan Perikanan"  >Dinas Peternakan, Kesehatan Hewan dan Perikanan</option>
+                    <option value="Dinas Lingkungan Hidup"  >Dinas Lingkungan Hidup</option>
+                    <option value="Dinas Perpustakaan dan Kearsipan"  >Dinas Perpustakaan dan Kearsipan</option>
+                    <option value="Satuan Polisi Pamong Praja dan Pemadam Kebakaran"  >Satuan Polisi Pamong Praja dan Pemadam Kebakaran</option>
+                    <option value="Rumah Sakit Umum Daerah La Temmamala"  >Rumah Sakit Umum Daerah La Temmamala</option>
+                  </select>
               </div>
 
               <div class="form-group">

@@ -46,6 +46,18 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
                     </div>";
 
           }
+
+          $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Simpan' AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$dta_jadwal[id_jadwal]'");
+                // $dta_aspirasi = mysqli_fetch_assoc($stts_aspirasi);
+                $row_aspirasi_cek = mysqli_num_rows($stts_aspirasi);
+                if($row_aspirasi_cek <= 0){
+                  echo "  <div class='alert alert-success alert-dismissible'>
+                      <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                      <h5><i class='icon fas fa-info'></i> Info!</h5>
+                        Anda Sudah Mengirim Laporan Reses
+                    </div>";
+                }
+
         ?>
 
         <div class="row">
@@ -56,14 +68,16 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
               <form method="POST" action="controller.php" enctype="multipart/form-data">
               <?php
               if($ada_jadwal=='Ada'){
-                echo '<a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
+                // echo '<a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
 
                 $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Simpan' AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$dta_jadwal[id_jadwal]'");
                 // $dta_aspirasi = mysqli_fetch_assoc($stts_aspirasi);
                 $row_aspirasi_cek = mysqli_num_rows($stts_aspirasi);
                 if($row_aspirasi_cek > 0){
+                  echo '<a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
                   echo '<button type="button"  data-toggle="modal" data-target="#modal-primary" class="float-right btn btn-success"><img src="/reses-dprd/assets/dist/img/send.png" style="max-width: 22px; max-height: 22px;" class="fa fa-send-secure">&nbsp Kirim Reses</button>';
                 } else{
+                  echo '<a href="tambah.php" type="button" class="btn btn-primary disabled"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
                   echo '<button type="button" class="float-right btn btn-success disabled"><img src="/reses-dprd/assets/dist/img/send.png" style="max-width: 22px; max-height: 22px;" class="fa fa-send-secure">&nbsp Kirim Reses</button>';
                 }
               } else {
