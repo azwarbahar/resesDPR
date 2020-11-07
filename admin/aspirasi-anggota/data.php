@@ -14,6 +14,7 @@ $dta_anggota = mysqli_fetch_assoc($result_anggota);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+          <a href="/reses-dprd/admin/laporan-masuk/data.php" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
             <h1 class="m-0 text-dark">Laporan <?= $dta_anggota['nama_anggota'] ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
