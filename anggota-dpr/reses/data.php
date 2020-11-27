@@ -47,7 +47,7 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
 
           } else{
 
-                $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Kirim' AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$jadwal_laporan'");
+                $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE (status_aspirasi='Kirim' OR status_aspirasi='Approve') AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$jadwal_laporan'");
                 // $dta_aspirasi = mysqli_fetch_assoc($stts_aspirasi);
                 $row_aspirasi_cek = mysqli_num_rows($stts_aspirasi);
                 if($row_aspirasi_cek >= 1){
@@ -70,7 +70,7 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_anggota=$g
               if($ada_jadwal=='Ada'){
                 // echo '<a href="tambah.php" type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp Tambah Lokasi</a>';
 
-                $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Kirim' AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$dta_jadwal[id_jadwal]'");
+                $stts_aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE (status_aspirasi='Kirim' OR status_aspirasi='Approve')  AND id_anggota='$get_id_akun_anggota' AND id_jadwal='$dta_jadwal[id_jadwal]'");
                 // $dta_aspirasi = mysqli_fetch_assoc($stts_aspirasi);
                 $row_aspirasi_cek = mysqli_num_rows($stts_aspirasi);
                 if($row_aspirasi_cek <= 0 ){

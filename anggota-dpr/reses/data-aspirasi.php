@@ -63,7 +63,17 @@ $aspirasi = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE id_lokasi='$id_
                     <td><?= $dta['kegiatan'] ?></td>
                     <td><?= $dta['skpd'] ?></td>
                     <td><?= $dta['lokasi'] ?></td>
-                    <td><?= $dta['status_aspirasi'] ?></td>
+                    <?php
+                      if ($dta['status_aspirasi'] == "Simpan"){
+                        echo "<td style='text-align:center'><span class='badge bg-secondary'>Simpan</span></td>";
+                      } else if ($dta['status_aspirasi'] == "Kirim"){
+                        echo "<td style='text-align:center'><span class='badge bg-primary'>Kirim</span></td>";
+                      } else if ($dta['status_aspirasi'] == "Approve"){
+                        echo "<td style='text-align:center'><span class='badge bg-success'>Approve</span></td>";
+                      } else if ($dta['status_aspirasi'] == "Tolak"){
+                        echo "<td style='text-align:center'><span class='badge bg-danger'>Tolak</span></td>";
+                      }
+                    ?>
                       <td style="text-align:center">
                       <form method="POST" action="controller.php" enctype="multipart/form-data">
                       <input type="text" hidden name="id_jadwal" id="id_jadwal" value="<?= $id_jadwal ?>">
