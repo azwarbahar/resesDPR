@@ -3,7 +3,7 @@ require '../template/header/header.php';
 
 $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
 $dta_jadwal = mysqli_fetch_assoc($jadwal);
-$group_anggota = mysqli_query($conn, "SELECT id_anggota FROM tb_aspirasi GROUP BY id_anggota");
+$group_anggota = mysqli_query($conn, "SELECT id_anggota FROM tb_aspirasi WHERE id_jadwal='$dta_jadwal[id_jadwal]' GROUP BY id_anggota");
 
 ?>
 

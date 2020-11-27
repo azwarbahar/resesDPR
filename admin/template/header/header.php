@@ -108,7 +108,9 @@ foreach($jadwal as $dta) {
       <!-- Notifications Dropdown Menu -->
 
       <?php
-        $aspirasi_header = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Kirim'");
+      $jadwal1 = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
+      $dta_jadwal1 = mysqli_fetch_assoc($jadwal1);
+        $aspirasi_header = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Kirim' AND id_jadwal='$dta_jadwal1[id_jadwal]'");
         $row_aspirasi_header = mysqli_num_rows($aspirasi_header);
         $row_aspirasi_header_final = $row_aspirasi_header;
         if($row_aspirasi_header_final > 0){
