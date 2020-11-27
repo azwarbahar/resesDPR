@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Nov 2020 pada 07.48
+-- Waktu pembuatan: 27 Nov 2020 pada 11.22
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -153,9 +153,11 @@ INSERT INTO `tb_aspirasi` (`id_aspirasi`, `id_lokasi`, `id_anggota`, `id_jadwal`
 (4, '1', '3', '3', 'Tes', 'lagi', 'tambah edit', 'Approve', ''),
 (5, '4', '5', '3', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesett', 'Lorem Ipsum adalah contoh teks atau dummy dalam ', 'Approve', ''),
 (6, '3', '3', '3', 'Mangkal', 'Banyal', 'aaa gut', 'Approve', ''),
-(7, '1', '3', '3', 'Main Game', 'testing', 'lokasi test', 'Simpan', ''),
-(8, '5', '3', '4', 'Testing', 'Testing', 'Testing', 'Kirim', ''),
-(9, '5', '3', '4', 'test23', 'test23', 'test23', 'Approve', '');
+(7, '1', '3', '3', 'Main Game', 'testing', 'lokasi test', 'Approve', ''),
+(8, '5', '3', '4', 'Testing', 'Testing', 'Testing', 'Approve', ''),
+(9, '5', '3', '4', 'test23', 'test23wq', 'test23', 'Approve', ''),
+(10, '6', '3', '4', 'Bermain Bersama', 'Dinas Kesehatan', 'Di samping', 'Approve', ''),
+(12, '8', '3', '7', 'sss', 'Dinas Pemberdayaan Masyarakat Desa', 'sa', 'Approve', '');
 
 -- --------------------------------------------------------
 
@@ -225,7 +227,8 @@ INSERT INTO `tb_dokumentasi` (`id_dokumentasi`, `id_lokasi`, `id_anggota`, `id_j
 (8, '5', '3', '4', 'image_1604726610.jpeg', 'ccc'),
 (9, '5', '3', '4', 'image_1604727246.png', 'asasdd'),
 (11, '5', '3', '4', 'image_1604727459.jpg', 'ghgh'),
-(12, '5', '3', '4', 'image_1604727480.PNG', 'tesss');
+(12, '5', '3', '4', 'image_1604727480.PNG', 'tesss'),
+(14, '8', '3', '7', 'image_1606471229.jpg', 'sss');
 
 -- --------------------------------------------------------
 
@@ -269,7 +272,8 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `nama_jadwal`, `mulai_jadwal`, `akhir_jadw
 (1, 'Semester I', '2020-01-12', '2020-04-12', 'Selesai'),
 (2, 'Semester II', '2020-05-12', '2020-08-12', 'Selesai'),
 (3, 'Semester III', '2020-09-12', '2020-11-04', 'Selesai'),
-(4, 'Semester IV', '2020-11-02', '2020-12-26', 'Berjalan');
+(4, 'Semester IV', '2020-11-02', '2020-11-26', 'Selesai'),
+(7, 'ddd', '2020-11-25', '2020-11-28', 'Berjalan');
 
 -- --------------------------------------------------------
 
@@ -313,7 +317,10 @@ INSERT INTO `tb_lokasi_reses` (`id_lokasi`, `id_anggota`, `id_jadwal`, `nama_lok
 (1, '3', '3', 'Sudiang', '2020-10-22'),
 (3, '3', '3', 'Antang', '2020-10-31'),
 (4, '5', '3', 'Alauddin', '2020-11-17'),
-(5, '3', '4', 'Bandung', '2020-11-12');
+(5, '3', '4', 'Bandung', '2020-11-12'),
+(6, '3', '4', 'Daeng Tata', '2020-11-13'),
+(7, '3', '6', 'ssa', '2020-11-28'),
+(8, '3', '7', 'sss', '2020-11-26');
 
 -- --------------------------------------------------------
 
@@ -450,7 +457,7 @@ ALTER TABLE `tb_anggota_fraksi`
 -- AUTO_INCREMENT untuk tabel `tb_aspirasi`
 --
 ALTER TABLE `tb_aspirasi`
-  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_aspirasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dapil`
@@ -468,7 +475,7 @@ ALTER TABLE `tb_dapil_wilayah`
 -- AUTO_INCREMENT untuk tabel `tb_dokumentasi`
 --
 ALTER TABLE `tb_dokumentasi`
-  MODIFY `id_dokumentasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_dokumentasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_fraksi`
@@ -480,7 +487,7 @@ ALTER TABLE `tb_fraksi`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_komisi`
@@ -492,7 +499,7 @@ ALTER TABLE `tb_komisi`
 -- AUTO_INCREMENT untuk tabel `tb_lokasi_reses`
 --
 ALTER TABLE `tb_lokasi_reses`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_partai`
