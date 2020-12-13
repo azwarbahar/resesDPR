@@ -6,6 +6,8 @@ $lokasi = mysqli_query($conn, "SELECT * FROM tb_lokasi_reses WHERE id_lokasi = '
 $dta_lokasi = mysqli_fetch_assoc($lokasi);
 $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
 $dta_jadwal = mysqli_fetch_assoc($jadwal);
+$anggotanya = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota='$get_id_akun_anggota'");
+$dta_anggota = mysqli_fetch_assoc($anggotanya);
 
 ?>
 
@@ -58,7 +60,20 @@ $dta_jadwal = mysqli_fetch_assoc($jadwal);
 
               <div class="form-group">
                 <label for="inputName">Lokasi</label>
-                <input type="text" value="<?= $dta_lokasi['nama_lokasi'] ?>" id="nama_lokasi" name="nama_lokasi"class="form-control">
+                <select class="form-control select2" style="width: 100%;" name="nama_lokasi" id="nama_lokasi">
+                    <?php
+                      $result=mysqli_query($conn,"SELECT * FROM tb_dapil_wilayah WHERE id_dapil = '$dta_anggota[id_dapil]'" );
+                      while($row=mysqli_fetch_assoc($result)) {
+                        if ($dta_lokasi['nama_lokasi'] == $row['nama_wilayah']) {
+                          $selected = 'selected="selected"';
+                        } else {
+                          $selected = '';
+                        }
+                        echo "<option value='$row[nama_wilayah]' $selected >$row[nama_wilayah]</option> ";
+                        // echo "<option value='$row[nama_wilayah]'>$row[nama_wilayah]</option>";
+                      }
+                    ?>
+                  </select>
               </div>
 
               <!-- Tanggal -->

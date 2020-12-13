@@ -5,8 +5,10 @@ require '../template/header/header.php';
 $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal WHERE status_jadwal='Berjalan'");
 $dta = mysqli_fetch_assoc($jadwal);
 
-?>
+$anggotanya = mysqli_query($conn, "SELECT * FROM tb_anggota WHERE id_anggota='$get_id_akun_anggota'");
+$dta_anggota = mysqli_fetch_assoc($anggotanya);
 
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -56,7 +58,15 @@ $dta = mysqli_fetch_assoc($jadwal);
 
               <div class="form-group">
                 <label for="inputName">Lokasi</label>
-                <input type="text" id="nama_lokasi" name="nama_lokasi"class="form-control">
+                <select class="form-control select2" style="width: 100%;" name="nama_lokasi" id="nama_lokasi">
+                    <option selected="selected">---- Pilih ----</option>
+                    <?php
+                      $result=mysqli_query($conn,"SELECT * FROM tb_dapil_wilayah WHERE id_dapil = '$dta_anggota[id_dapil]'" );
+                      while($row=mysqli_fetch_assoc($result)) {
+                        echo "<option value='$row[nama_wilayah]'>$row[nama_wilayah]</option>";
+                      }
+                    ?>
+                  </select>
               </div>
 
               <!-- Tanggal -->
