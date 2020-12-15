@@ -59,7 +59,24 @@
 
 <!-- page script -->
 <script>
+
   $(function () {
+    // table laporan
+    $('#jadwal_laporan').change(function(){
+      // alert("Test")
+      var idjadwal = $('#jadwal_laporan').val();
+      $.ajax({
+        url     : 'cont.php',
+        method  : "POST",
+        data    : { req: 'getdata', idjadwal: idjadwal},
+        success : function(data) {
+          console.log(data)
+          $('#table-approve').html(data)
+        }
+      });
+    })
+
+
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
@@ -118,7 +135,6 @@
     $("input[data-bootstrap-switch]").each(function(){
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
-
 
   })
 </script>
