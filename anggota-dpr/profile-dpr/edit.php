@@ -162,10 +162,40 @@ $dta = mysqli_fetch_assoc($result);
 
             <div class="card-body">
 
-              <!-- Jabatan -->
+               <!-- Nama Jabatan -->
               <div class="form-group">
-                <label for="inputName">Jabatan</label>
-                <input type="text" value="<?= $dta['jabatan_anggota'] ?>" id="jabatan" name="jabatan" class="form-control">
+              <label for="inputName">Jabatan</label>
+                <select class="form-control select2" style="width: 100%;" name="jabatan" id="jabatan">
+                    <?php
+                        if ("Ketua DPRD" == $dta['jabatan_anggota']) {
+                          $selected = 'selected="selected"';
+                          echo "<option value='Ketua DPRD' $selected >Ketua DPRD</option> 
+                                <option value='Wakil Ketua I DPRD'>Wakil Ketua I DPRD</option>
+                                <option value='Wakil Ketua II DPRD'>Wakil Ketua II DPRD</option>
+                                <option value='Anggota DPRD'>Anggota DPRD</option>";
+                        } else if ("Wakil Ketua I DPRD" == $dta['jabatan_anggota']) {
+                          $selected = 'selected="selected"';
+                          echo "<option value='Ketua DPRD'>Ketua DPRD</option> 
+                                <option $selected value='Wakil Ketua I DPRD'>Wakil Ketua I DPRD</option>
+                                <option value='Wakil Ketua II DPRD'>Wakil Ketua II DPRD</option>
+                                <option value='Anggota DPRD'>Anggota DPRD</option>";
+                        } else if ("Wakil Ketua II DPRD" == $dta['jabatan_anggota']) {
+                          $selected = 'selected="selected"';
+                          echo "<option value='Ketua DPRD'>Ketua DPRD</option> 
+                                <option value='Wakil Ketua I DPRD'>Wakil Ketua I DPRD</option>
+                                <option $selected value='Wakil Ketua II DPRD'>Wakil Ketua II DPRD</option>
+                                <option value='Anggota DPRD'>Anggota DPRD</option>";
+                        } else if ("Anggota DPRD" == $dta['jabatan_anggota']) {
+                          $selected = 'selected="selected"';
+                          echo "<option value='Ketua DPRD'>Ketua DPRD</option> 
+                                <option value='Wakil Ketua I DPRD'>Wakil Ketua I DPRD</option>
+                                <option value='Wakil Ketua II DPRD'>Wakil Ketua II DPRD</option>
+                                <option $selected value='Anggota DPRD'>Anggota DPRD</option>";
+                        } else {
+                          $selected = '';
+                        }
+                    ?>
+                  </select>
               </div>
 
                <!-- Nama Partai -->

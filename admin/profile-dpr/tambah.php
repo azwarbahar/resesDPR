@@ -155,10 +155,16 @@ require '../template/header/header.php';
 
             <div class="card-body">
 
-              <!-- Jabatan -->
+               <!-- Nama Jabatan -->
               <div class="form-group">
-                <label for="inputName">Jabatan</label>
-                <input type="text" id="jabatan" name="jabatan" class="form-control">
+              <label for="inputName">Jabatan</label>
+                <select class="form-control select2" style="width: 100%;" name="jabatan" id="jabatan">
+                    <option selected="selected" value="-">---- Pilih ----</option>
+                    <option value="Ketua DPRD">Ketua DPRD</option>
+                    <option value="Wakil Ketua I DPRD">Wakil Ketua I DPRD</option>
+                    <option value="Wakil Ketua II DPRD">Wakil Ketua II DPRD</option>
+                    <option value="Anggota DPRD">Anggota DPRD</option>
+                  </select>
               </div>
 
                <!-- Nama Partai -->
