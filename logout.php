@@ -8,6 +8,6 @@ if (isset($_GET['logout'])) {
 	setcookie($for, FALSE, time()-1728000);
 	setcookie('get_id', FALSE, time()-1728000);
 
-	header("location: login.php");
+	header("location: index.php");
 }
 ?>
